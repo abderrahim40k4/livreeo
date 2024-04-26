@@ -48,7 +48,7 @@ export const useSecondStepStore = defineStore("secondStepStore", {
             name:"90g 24x32 grands carreaux de 96 pages 1",
             description:"Cahier 24x32, 96 pages, grands carreaux",
             prix: 22,
-            image: "../../livreeo/src/assets/calligraphe.png",
+            image: "../assets/Calligraphe-JhWdyp8R.svg",
             marque: "Calligraphe",
             categorie: "HG SI et classiques",
             annee: "2018",
