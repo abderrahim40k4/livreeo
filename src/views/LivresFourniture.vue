@@ -71,7 +71,7 @@ import FournituresCard from '../components/LivreAndFournitures/FournituresCard.v
 import PlastificationCard from '../components/LivreAndFournitures/PlastificationCard.vue'
 import { useSecondStepStore } from '../stors/SecondStepStore'
 
-const manuels = import("../assets/manuels.svg");
+const manuels = import("../livreeo/manuels.svg");
 const fourniture = import("../assets/fourniture.svg");
 const plastification = import("../assets/plastification.svg");
 
