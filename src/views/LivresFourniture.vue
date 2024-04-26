@@ -25,7 +25,6 @@
             <SmallCard :cart="cartLivre" name="Manuels" :image="manuels"/>
             <SmallCard :cart="cartFourn" name="Fournitures" :image="fourniture"/>
             <SmallCard :cart="cartPlast" id="secondbtn" name="Plastification" :image="plastification"/>
-
         </div>
         <div class="w-full flex flex-col items-center justify-center space-y-10">
             <LivresCard 
@@ -71,9 +70,9 @@ import FournituresCard from '../components/LivreAndFournitures/FournituresCard.v
 import PlastificationCard from '../components/LivreAndFournitures/PlastificationCard.vue'
 import { useSecondStepStore } from '../stors/SecondStepStore'
 
-const manuels = import("../livreeo/manuels.svg");
-const fourniture = import("../assets/fourniture.svg");
-const plastification = import("../assets/plastification.svg");
+import manuels from '../assets/manuels.svg';
+import fourniture from '../assets/fourniture.svg';
+import plastification from '../assets/plastification.svg';
 
 
 const data = useSecondStepStore();
