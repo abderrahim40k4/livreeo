@@ -22,14 +22,9 @@
     <div class="container mx-auto max-w-7xl pt-6 md:pt-12 pb-5 md:pb-8">
         <!-- 3 Card -->
         <div class="w-full flex items-center justify-center space-x-5 sm:space-x-10 md:space-x-28 pb-10">
-            <SmallCard :cart="cartLivre" name="Manuels" image="../../livreeo/src/assets/manuels.svg"/>
-            <SmallCard :cart="cartFourn" name="Fournitures" image="../../livreeo/src/assets/fourniture.svg"/>
-            <SmallCard :cart="cartPlast" id="secondbtn" name="Plastification" image="../../livreeo/src/assets/plastification.svg"/>
-            <img src="../assets/manuels.svg" class="hidden" alt="manuels">
-            <img src="../assets/fourniture.svg" class="hidden" alt="fourniture">
-            <img src="../assets/plastification.svg" class="hidden" alt="plastification">
-            <img src="../assets/latin.png" class="hidden" alt="latin">
-            <img src="../assets/livre.svg" class="hidden" alt="livre">
+            <SmallCard :cart="cartLivre" name="Manuels" :image="manuels"/>
+            <SmallCard :cart="cartFourn" name="Fournitures" :image="fourniture"/>
+            <SmallCard :cart="cartPlast" id="secondbtn" name="Plastification" :image="plastification"/>
 
         </div>
         <div class="w-full flex flex-col items-center justify-center space-y-10">
@@ -75,6 +70,11 @@ import LivresCard from '../components/LivreAndFournitures/LivresCard.vue'
 import FournituresCard from '../components/LivreAndFournitures/FournituresCard.vue'
 import PlastificationCard from '../components/LivreAndFournitures/PlastificationCard.vue'
 import { useSecondStepStore } from '../stors/SecondStepStore'
+
+const manuels = import("../assets/manuels.svg");
+const fourniture = import("../assets/fourniture.svg");
+const plastification = import("../assets/plastification.svg");
+
 
 const data = useSecondStepStore();
 
