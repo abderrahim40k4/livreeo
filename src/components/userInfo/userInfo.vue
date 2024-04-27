@@ -1,36 +1,38 @@
 <template>
-    <div class="w-full md:w-1/2">
-                          <div class="mb-8"><router-link to="/mode-livreson"><img src="../../assets/back.svg" height=""></router-link></div>
-                          <div class="text-[26px] font-bold">Informations personnelles  </div>
-                          <div class="w-full flex flex-col justify-start items-end pr-8">
-                            <form @submit.prevent="submitForm" class="w-full flex flex-col justify-start items-start">
-                              <input type="text" class="appearance-none w-full md:w-[375px] py-4 px-8 my-4 rounded-full bg-[#F0F9FF] placeholder:text-[#6192BF] md:text-[20px] text-sm focus:bg-[#E4F3FF] active:bg-[#E4F3FF] active:border active:border-[#1E94FD] focus:border focus:border-[#1E94FD] focus:outline focus:outline-0" placeholder="Nom Complet" v-model="formData.name">
-                              <input type="number" class="appearance-none w-full md:w-[375px] py-4 px-8 my-4 rounded-full bg-[#F0F9FF] placeholder:text-[#6192BF] md:text-[20px] text-sm focus:bg-[#E4F3FF] active:bg-[#E4F3FF] active:border active:border-[#1E94FD] focus:border focus:border-[#1E94FD] focus:outline focus:outline-0" placeholder="Numéro de Télèphone" v-model="formData.phoneNum">
-                              <input type="email" class="appearance-none w-full md:w-[375px] py-4 px-8 my-4 rounded-full bg-[#F0F9FF] placeholder:text-[#6192BF] md:text-[20px] text-sm focus:bg-[#E4F3FF] active:bg-[#E4F3FF] active:border active:border-[#1E94FD] focus:border focus:border-[#1E94FD] focus:outline focus:outline-0" placeholder="E-mail" v-model="formData.email">
-                              <input type="email" class="appearance-none w-full md:w-[375px] py-4 px-8 my-4 rounded-full bg-[#F0F9FF] placeholder:text-[#6192BF] md:text-[20px] text-sm focus:bg-[#E4F3FF] active:bg-[#E4F3FF] active:border active:border-[#1E94FD] focus:border focus:border-[#1E94FD] focus:outline focus:outline-0" placeholder="Confirmation E-mail " v-model="formData.confirmEmail">
-                              <router-link to="/payment-method" class="w-full">
-                              <input type="submit" value="Aller au paiement" class="my-16 p-4 bg-dark-blue text-white-color rounded-full md:w-[268px] w-full md:text-[20px] text-sm font-semibold cursor-pointer " @click="submitForm()">
-                              </router-link>
-                            </form>
-                          </div>
-                        </div>
+    <div class="w-full flex flex-col pt-12 pl-8 sm:pl-16 xl:pl-28">
+    <div>
+      <router-link to="/adresse-de-livraison"><img src="../../assets/back-arraw.svg" class="h-10" alt="back"></router-link>
+    </div>
+    <div class="flex flex-col pt-10">
+      <h3 class="font-bold text-dark-blue text-lg pb-5">Informations personnelles </h3>
+      <form class="flex flex-col space-y-4">
+        <input type="text" placeholder="Nom Complet" class="py-4 px-6 w-72 text-dark-blue rounded-full text-base focus:bg-[#E4F3FF] focus:outline-none focus:ring-1 focus:ring-[#1E94FD] placeholder:text-[#6192BF]">
+        <input type="number" placeholder="Numéro de Télèphone" class="py-4 px-6 rounded-full w-72 text-dark-blue text-base focus:bg-[#E4F3FF] focus:outline-none focus:ring-1 focus:ring-[#1E94FD] placeholder:text-[#6192BF]">
+        <input type="text" placeholder="E-mail" class="py-4 px-6 rounded-full w-72 text-dark-blue text-base focus:bg-[#E4F3FF] focus:outline-none focus:ring-1 focus:ring-[#1E94FD] placeholder:text-[#6192BF]">
+        <input type="text" placeholder="Confirmation E-mail " class="py-4 px-6 rounded-full w-72 text-dark-blue text-base focus:bg-[#E4F3FF] focus:outline-none focus:ring-1 focus:ring-[#1E94FD] placeholder:text-[#6192BF]">
+        <div class="pt-6">
+          <input type="button" value="Aller au paiement" class="bg-dark-blue text-white-color font-semibold text-base px-9 cursor-pointer rounded-full py-3 hover:bg-[#004179e5] transition duration-200 ease-in">
+        </div>
+      </form>
+    </div>
+  </div>
 </template>
 <script setup>
 import {ref } from 'vue'
-import { useEndPoint } from '../../stors/endpoint';
-const store = useEndPoint();
+// import { useEndPoint } from '../../stors/endpoint';
+// const store = useEndPoint();
 
-const formData = ref({
-  name: '',
-  phoneNum: '',
-  email: '',
-  confirmEmail:''
-});
+// const formData = ref({
+//   name: '',
+//   phoneNum: '',
+//   email: '',
+//   confirmEmail:''
+// });
 
-const submitForm = () => {
-  store.formulaire.nom = formData.value.name
-  store.formulaire.numberPhone = formData.value.phoneNum
-  store.formulaire.email = formData.value.email
-  // You can perform further actions with the form data here, such as sending it to a server
-};
+// const submitForm = () => {
+//   store.formulaire.nom = formData.value.name
+//   store.formulaire.numberPhone = formData.value.phoneNum
+//   store.formulaire.email = formData.value.email
+//   // You can perform further actions with the form data here, such as sending it to a server
+// };
 </script>

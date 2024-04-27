@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[90%] md:w-3/4 lg:w-80 text-dark-blue bg-white-color rounded-3xl px-5 py-4">
+    <div class="w-[90%] md:w-3/4 lg:w-80 text-dark-blue bg-gradient-to-b from-[#FFFFFF] to-[#E5EBFF] rounded-3xl px-5 py-4">
         <h1 class="text-base font-bold leading-6 pb-5">Récapitulatif</h1>
         <div class="flex items-center justify-between pb-4">
             <div>

@@ -120,7 +120,7 @@
                 <!--Buttons-->
                 <div class="w-full px-4 md:px-0 md:w-4/5 flex items-center justify-between pt-6 md:pt-8">
                     <div>
-                        <router-link to="/Fourniture/cartable"><img src="../assets/back-arraw.svg" class="h-10 md:h-12 cursor-pointer" alt="back"></router-link>
+                        <router-link to="/bascket"><img src="../assets/back-arraw.svg" class="h-10 md:h-12 cursor-pointer" alt="back"></router-link>
                     </div>
                     <div>
                         <router-link to="/adresse-de-livraison"><button class="bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out text-white-color rounded-full text-sm md:text-base font-semibold px-4 md:px-6 py-2 md:py-3">Aller au paiement</button></router-link>

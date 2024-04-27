@@ -63,13 +63,13 @@ const router = createRouter({
             component:  Addresse
           },
           {
-            path: '/user-info',
-            name: ' User-info',
+            path: '/informations-personnelles',
+            name: 'Informations-personnelles',
             component:UserInfo
           },
           {
             path: '/payment-method',
-            name: '  payment-method',
+            name: 'payment-method',
             component:paymentMethod
           },
           {
