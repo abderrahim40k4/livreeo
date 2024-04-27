@@ -18,20 +18,3 @@ import panierRecap from '../../components/userInfo/panierRecap.vue';
 
 </script>
 
-<style scoped>
-/* width */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f0f0;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #004079;
-  border-radius: 5px;
-}
-</style>

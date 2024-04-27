@@ -9,8 +9,9 @@
                         <img src="../../assets/latin.png" class="w-8 md:w-10" alt="livre">
                     </div>
                     <div class="flex flex-col text-dark-blue space-y-1">
-                        <div>
+                        <div class="flex items-center space-x-1">
                             <p class="text-[10px] md:text-xs font-semibold">Manuels</p>
+                            <img src="../../assets/btn-modify.svg" class="h-3" alt="modify">
                         </div>
                         <router-link to="/Livres-Fourniture">
                             <div class="border-[0.5px] border-[#6192BF] w-14 md:w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
@@ -36,8 +37,9 @@
                         <img src="../../assets/Calligraphe.svg" class="w-8 md:w-10" alt="livre">
                     </div>
                     <div class="flex flex-col text-dark-blue space-y-1">
-                        <div>
+                        <div class="flex items-center space-x-1">
                             <p class="text-[10px] md:text-xs font-semibold">Fournitures</p>
+                            <img src="../../assets/btn-modify.svg" class="h-3" alt="modify">
                         </div>
                         <router-link to="/Livres-Fourniture">
                             <div class="border-[0.5px] border-[#6192BF] w-14 md:w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
@@ -63,8 +65,9 @@
                         <img src="../../assets/defaultCalc.svg" class="w-12" alt="livre">
                     </div>
                     <div class="flex flex-col text-dark-blue space-y-1">
-                        <div>
+                        <div class="flex items-center space-x-1">
                             <p class="text-[10px] md:text-xs font-semibold">Calculatrice</p>
+                            <img src="../../assets/btn-modify.svg" class="h-3" alt="modify">
                         </div>
                         <router-link to="/Fourniture/calculatrice">
                             <div class="border-[0.5px] border-[#6192BF] w-14 md:w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
@@ -90,8 +93,9 @@
                         <img src="../../assets/cartable-panier.svg" class="w-12" alt="livre">
                     </div>
                     <div class="flex flex-col text-dark-blue space-y-1">
-                        <div>
+                        <div class="flex items-center space-x-1">
                             <p class="text-[10px] md:text-xs font-semibold">Cartable</p>
+                            <img src="../../assets/btn-modify.svg" class="h-3" alt="modify">
                         </div>
                         <router-link to="/Fourniture/cartable">
                             <div class="border-[0.5px] border-[#6192BF] w-14 md:w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
@@ -117,8 +121,9 @@
                         <img src="../../assets/trousse2.png" class="w-12" alt="livre">
                     </div>
                     <div class="flex flex-col text-dark-blue space-y-1">
-                        <div>
+                        <div class="flex items-center space-x-1">
                             <p class="text-[10px] md:text-xs font-semibold">Trousse</p>
+                            <img src="../../assets/btn-modify.svg" class="h-3" alt="modify">
                         </div>
                         <router-link to="/Fourniture/trousse">
                             <div class="border-[0.5px] border-[#6192BF] w-14 md:w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
@@ -231,5 +236,19 @@ import { useSecondStepStore } from '../../stors/SecondStepStore';
 </script>
 
 <style scoped>
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f0f0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #004079;
+  border-radius: 5px;
+}
 </style>
