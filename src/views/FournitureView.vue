@@ -15,9 +15,9 @@
 
   <div class="container mx-auto max-w-7xl pt-6 md:pt-12 pb-5 md:pb-6">
     <div class="w-full flex items-center justify-center space-x-5 sm:space-x-10 md:space-x-28 pb-10">
-        <router-link to="/Fourniture/cartable"><smallCardFournt :cart="cartCartable" name="Cartables" image="../../livreeo/src/assets/cartabl.svg"/></router-link>
-        <router-link to="/Fourniture/trousse"><smallCardFournt :cart="cartTrousse" name="Trousses" image="../../livreeo/src/assets/trouse.svg"/></router-link>
-        <router-link to="/Fourniture/calculatrice"><smallCardFournt :cart="cartCalcul" name="Calculatrices" image="../../livreeo/src/assets/calculatrice.svg"/></router-link>
+        <router-link to="/Fourniture/cartable"><smallCardFournt :cart="cartCartable" name="Cartables" :image="cartabl"/></router-link>
+        <router-link to="/Fourniture/trousse"><smallCardFournt :cart="cartTrousse" name="Trousses" :image="trouse"/></router-link>
+        <router-link to="/Fourniture/calculatrice"><smallCardFournt :cart="cartCalcul" name="Calculatrices" :image="calculatrice"/></router-link>
     </div>
 
     <ProductsFourniture :products="products"/>
@@ -45,6 +45,9 @@ import ProductsFourniture from "../components/DefaultFaurniture/ProductsFournitu
 import SiteMapComponent from "../components/SiteMapComponent.vue"
 import { useDefaultFaurnitures } from "../stors/DefaultFaurnitures"
 
+import cartabl from '../assets/cartabl.svg';
+import trouse from '../assets/trouse.svg';
+import calculatrice from '../assets/calculatrice.svg';
 
 const data = useDefaultFaurnitures();
 const products = data.getProducts;
