@@ -123,7 +123,7 @@
                         <router-link to="/Fourniture/cartable"><img src="../assets/back-arraw.svg" class="h-10 md:h-12 cursor-pointer" alt="back"></router-link>
                     </div>
                     <div>
-                        <button class="bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out text-white-color rounded-full text-sm md:text-base font-semibold px-4 md:px-6 py-2 md:py-3">Aller au paiement</button>
+                        <router-link to="/adresse-de-livraison"><button class="bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out text-white-color rounded-full text-sm md:text-base font-semibold px-4 md:px-6 py-2 md:py-3">Aller au paiement</button></router-link>
                     </div>
                 </div>
             </div>
