@@ -68,12 +68,12 @@ const router = createRouter({
             component:UserInfo
           },
           {
-            path: '/payment-method',
-            name: 'payment-method',
+            path: '/moyen-de-payement',
+            name: 'moyen-de-payement',
             component:paymentMethod
           },
           {
-            path: '/cart-info',
+            path: '/carte-bancaire',
             name: 'cart-info',
             component:cartInfo
           },

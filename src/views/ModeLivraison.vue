@@ -4,7 +4,7 @@
             <div class="flex flex-col items-center justify-center space-y-10 md:space-y-16">
                 <!--title-->
                 <div>
-                    <h1 class="font-bold text-2xl md:text-3xl">Choisir le mode de livraison </h1>
+                    <h1 class="font-bold text-xl md:text-3xl">Choisir le mode de livraison </h1>
                 </div>
 
                 <!--Cards-->

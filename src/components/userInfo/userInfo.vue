@@ -11,7 +11,7 @@
         <input type="text" placeholder="E-mail" class="py-4 px-6 rounded-full w-72 text-dark-blue text-base focus:bg-[#E4F3FF] focus:outline-none focus:ring-1 focus:ring-[#1E94FD] placeholder:text-[#6192BF]">
         <input type="text" placeholder="Confirmation E-mail " class="py-4 px-6 rounded-full w-72 text-dark-blue text-base focus:bg-[#E4F3FF] focus:outline-none focus:ring-1 focus:ring-[#1E94FD] placeholder:text-[#6192BF]">
         <div class="pt-6">
-          <input type="button" value="Aller au paiement" class="bg-dark-blue text-white-color font-semibold text-base px-9 cursor-pointer rounded-full py-3 hover:bg-[#004179e5] transition duration-200 ease-in">
+          <router-link to="/moyen-de-payement"><input type="button" value="Aller au paiement" class="bg-dark-blue text-white-color font-semibold text-base px-9 cursor-pointer rounded-full py-3 hover:bg-[#004179e5] transition duration-200 ease-in"></router-link>
         </div>
       </form>
     </div>

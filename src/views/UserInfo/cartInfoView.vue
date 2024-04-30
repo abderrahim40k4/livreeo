@@ -1,45 +1,49 @@
 <template>
-    <div class=" bg-white-blue">
-        <div class="container mx-auto max-w-7xl">
-            <div class="w-full flex flex-col items-center justify-cente">
-                <div class="w-[90%] flex flex-col items-center justify-center pt-12 2xl:pt-8">
-                    <div class="w-full md:w-[674px] flex flex-row items-center my-8">
-                        <img src="../../assets/radioBox.svg">
-                        <p class="text-black mx-4 font-medium text-xl">Carte Bancaire </p>
+    <div class="bg-white-blue h-screen py-12">
+        <div class="container mx-auto max-w-7xl text-[#000]">
+            <div class="w-full flex flex-col items-center">
+                <div class="w-2/5">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-dark-blue w-6 h-6 rounded-full flex items-center justify-center">
+                            <div class="bg-white-color w-3 h-3 rounded-full"></div>
+                        </div>
+                        <p class="text-sm md:text-base font-medium">Carte Bancaire</p>
                     </div>
-                    <form @submit.prevent="submitForm" class=" w-full md:w-[674px] flex flex-col justify-start items-atart" >
-                        <label for="cardholderName" class="text-black font-medium text-sm md:text-xl">Nom <span class="text-dark-blue">*</span></label>
-                        <span class="font-meduim text-sm">Vérifiez que vous indiquez le nom complet affiché sur la carte</span>
-                        <input required ="formData.fullName" type="text" class="appearance-none py-4 px-8 mt-4 mb-[32px] rounded-full bg-[#F0F9FF] placeholder:text-[#6192BF] md:text-[20px] text-sm focus:bg-[#E4F3FF] active:bg-[#E4F3FF] active:border active:border-[#1E94FD] focus:border focus:border-[#1E94FD] focus:outline focus:outline-0">
-                        <label for="cardholderName" class="text-black font-medium text-sm md:text-xl">Numero de la carte <span class="text-dark-blue">*</span></label>
-                        <input required v-model="formData.cardNum" type="text" class="appearance-none py-4 px-8 mt-4 mb-[32px] rounded-full bg-[#F0F9FF] placeholder:text-[#6192BF] md:text-[20px] text-sm focus:bg-[#E4F3FF] active:bg-[#E4F3FF] active:border active:border-[#1E94FD] focus:border focus:border-[#1E94FD] focus:outline focus:outline-0">
-                        <div class="w-full flex flex-row justify-between items-center">
-                            <!-- date -->
-                        <div class="w-1/2">
-                            <label for="cardholderName" class="text-black font-medium text-sm md:text-xl">Date d’expiration <span class="text-dark-blue">*</span></label>
-                            <div class="w-full flex flex-row">
-                                <select required v-model="formData.EXPDate.mounth" type="text" class="appearance-none py-4 px-8 mt-4 mb-[32px] w-1/2 rounded-l-full bg-[#F0F9FF] placeholder:text-[#6192BF] md:text-[20px] text-sm focus:bg-[#E4F3FF] active:bg-[#E4F3FF] active:border active:border-[#1E94FD] focus:border focus:border-[#1E94FD] focus:outline focus:outline-0">
-                                    <option  v-for="mounth in mounths">{{mounth}}</option>
-                                </select>
-                                <select required v-model="formData.EXPDate.year"  type="text" class="appearance-none py-4 px-8 mt-4 mb-[32px] w-1/2 rounded-r-full border border-[#D3D3D3] bg-[#F0F9FF] placeholder:text-[#6192BF] md:text-[20px] text-sm focus:bg-[#E4F3FF] active:bg-[#E4F3FF] active:border active:border-[#1E94FD] focus:border focus:border-[#1E94FD] focus:outline focus:outline-0">
-                                    <option>2023</option>
-                                    <option v-for="year in years">{{year}}</option>
-                                </select>
+                    <div class="flex flex-col pt-8">
+                        <div class="pb-2 pl-2">
+                            <h1 class="text-sm md:text-base font-medium">Nom <span class="text-dark-blue">*</span></h1>
+                            <p class="text-[#373737] font-medium text-xs">Vérifiez que vous indiquez le nom complet affiché sur la carte</p>
+                        </div>
+                        <input type="text" class="py-4 px-6 text-dark-blue rounded-full text-base bg-[#F0F9FF] focus:bg-[#E4F3FF] focus:outline-none focus:ring-1 focus:ring-[#1E94FD]">
+                    </div>
+                    <div class="flex flex-col pt-5">
+                        <div class="pb-2 pl-2">
+                            <h1 class="text-sm md:text-base font-medium">Numero de la carte<span class="text-dark-blue">*</span></h1>
+                        </div>
+                        <input type="text" class="py-4 px-6 text-dark-blue rounded-full text-base bg-[#F0F9FF] focus:bg-[#E4F3FF] focus:outline-none focus:ring-1 focus:ring-[#1E94FD]">
+                    </div>
+                    <div class="w-full flex items-center justify-between pt-5">
+                        <div class="w-[50%] flex flex-col">
+                            <div class="pb-2 pl-2">
+                                <h1 class="text-sm md:text-base font-medium">Date d'expiration <span class="text-dark-blue">*</span></h1>
                             </div>
+                            <input type="text" class="py-4 px-6 text-dark-blue rounded-full text-base bg-[#F0F9FF] focus:bg-[#E4F3FF] focus:outline-none focus:ring-1 focus:ring-[#1E94FD]">
                         </div>
-                        <!-- cvv -->
-                        <div class="w-1/3 flex flex-col justify-end itemes-end">
-                            <label for="cardholderName" class="text-black font-medium text-sm md:text-xl">Code de sécurité  <span class="text-dark-blue">*</span></label>
-                            <input required v-model="formData.cvv" value="cvv" class="appearance-none py-4 px-8 mt-4 mb-[32px] w-full rounded-full bg-[#F0F9FF] placeholder:text-[#6192BF] md:text-[20px] text-sm focus:bg-[#E4F3FF] active:bg-[#E4F3FF] active:border active:border-[#1E94FD] focus:border focus:border-[#1E94FD] focus:outline focus:outline-0">
+                        <div class="w-[40%] flex flex-col">
+                            <div class="pb-2 pl-2">
+                                <h1 class="text-sm md:text-base font-medium">Code de sécurité<span class="text-dark-blue">*</span></h1>
+                            </div>
+                            <input type="number" placeholder="CVV" class="py-4 px-6 text-dark-blue rounded-full text-base bg-[#F0F9FF] focus:bg-[#E4F3FF] focus:outline-none focus:ring-1 focus:ring-[#1E94FD]">
                         </div>
-
-                        </div>
-                    </form>
-                    <div class="w-full my-16 flex flex-row justify-between items-center">
-                        <router-link to="/payment-method"><img src="../../assets/back.svg" height="" class="w-12"></router-link>
-                        <router-link to="/facture">
-                            <button class="py-3 px-8 text-white-color bg-dark-blue rounded-full font-semibold md:text-[20px] text-[15px]" @click="submitForm()">Aller au paiement</button>
-                        </router-link>
+                    </div>
+                </div>
+                <!--Buttons-->
+                <div class="w-full px-4 md:px-0 md:w-4/5 flex items-center justify-between pt-6 md:pt-10">
+                    <div>
+                        <router-link to="/moyen-de-payement"><img src="../../assets/back-arraw.svg" class="h-10 md:h-12 cursor-pointer" alt="back"></router-link>
+                    </div>
+                    <div>
+                        <router-link to=""><button class="bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out text-white-color rounded-full text-sm md:text-base font-semibold px-4 md:px-6 py-2 md:py-3">Aller au paiement</button></router-link>
                     </div>
                 </div>
             </div>
@@ -47,37 +51,51 @@
     </div>
 </template>
 <script setup>
-    import {ref } from 'vue'
-    import { useEndPoint } from '../../stors/endpoint';
-    const store = useEndPoint();
-    const mounths = [1,2,3,4,5,6,7,8,9,10,11,12];
+//     import {ref } from 'vue'
+//     import { useEndPoint } from '../../stors/endpoint';
+//     const store = useEndPoint();
+//     const mounths = [1,2,3,4,5,6,7,8,9,10,11,12];
 
-    const today = new Date();
-    const year = today.getUTCFullYear();
-    let years = [year];
-    function getYears(){
-        for(let i = 0; i < 11; i++) {
-            years.push(year+i);
-        }
-    }
-    getYears();
+//     const today = new Date();
+//     const year = today.getUTCFullYear();
+//     let years = [year];
+//     function getYears(){
+//         for(let i = 0; i < 11; i++) {
+//             years.push(year+i);
+//         }
+//     }
+//     getYears();
 
-    const formData = ref({
-  fullName: '',
-  cardNum: '',
-  EXPDate: {
-    mounth:0,
-    year:null,
-  },
-  cvv:null,
-});
+//     const formData = ref({
+//   fullName: '',
+//   cardNum: '',
+//   EXPDate: {
+//     mounth:0,
+//     year:null,
+//   },
+//   cvv:null,
+// });
 
 
-const submitForm = () => {
-    store.type_paiement.nom =formData.value.fullName
-    store.type_paiement.numero_carte = formData.value.cardNum
-    store.type_paiement.date_expiration = `${formData.value.EXPDate.year} \ ${formData.value.EXPDate.mounth}`
-    store.type_paiement.code_securite = formData.value.cvv
-  // You can perform further actions with the form data here, such as sending it to a server
-};
+// const submitForm = () => {
+//     store.type_paiement.nom =formData.value.fullName
+//     store.type_paiement.numero_carte = formData.value.cardNum
+//     store.type_paiement.date_expiration = `${formData.value.EXPDate.year} \ ${formData.value.EXPDate.mounth}`
+//     store.type_paiement.code_securite = formData.value.cvv
+//   // You can perform further actions with the form data here, such as sending it to a server
+// };
 </script>
+
+<style scoped>
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+/* input[type=number] {
+  -moz-appearance: textfield;
+} */
+</style>
