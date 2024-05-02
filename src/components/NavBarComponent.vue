@@ -78,7 +78,7 @@ const navlinks = [
     {
         id : 2,
         title: 'Accessoires Scolaires',
-        path: ''
+        path: '/accessoires-scolaires'
     },
     {
         id : 3,

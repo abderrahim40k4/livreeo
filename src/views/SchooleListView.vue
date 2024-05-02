@@ -6,12 +6,12 @@
                 Trouvez la liste scolaire téléchargeable de votre enfant en 3 clics!
             </p>
         </div>
-        <div class="flex flex-col md:flex-row items-center justify-evenly space-y-6 md:space-y-0">
+        <div class="flex flex-col md:flex-row items-center md:items-start justify-evenly space-y-6 md:space-y-0">
             <InputFaildComponentes labale="Ville :" text="Casablanca"/>
             <InputFaildComponentes labale="École :" text="Lycée lyautey "/>
             <InputFaildComponentes labale="Classe :" text="5 ème "/>
         </div>
-        <div class="flex items-center justify-center py-8 md:py-12 ">
+        <div class="flex items-center justify-center py-8 md:py-12">
             <button class="bg-dark-blue rounded-full text-white-color text-base font-semibold px-10 py-2 hover:bg-[#004179e5] transition duration-200 ease-in-out">Suivant</button>
         </div>
     </div>
