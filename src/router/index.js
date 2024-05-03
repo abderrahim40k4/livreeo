@@ -114,8 +114,8 @@ const router = createRouter({
           component: Liveryocriche
         },
         {
-          path: '/about/partnerships',
-          name: 'partnerships',
+          path: '/about/partenariats-associatifs',
+          name: 'Partenariats-associatifs',
           component: Partnerships
         },
         {

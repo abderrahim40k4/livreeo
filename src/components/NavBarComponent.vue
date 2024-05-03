@@ -78,7 +78,7 @@ const navlinks = [
     {
         id : 2,
         title: 'Accessoires Scolaires',
-        path: '/accessoires-scolaires'
+        path: '/Fourniture/cartable'
     },
     {
         id : 3,
@@ -88,7 +88,7 @@ const navlinks = [
     {
         id : 4,
         title: 'Partenariats Associatifs',
-        path: '/about/partnerships'
+        path: '/about/partenariats-associatifs'
     },
     {
         id : 5,

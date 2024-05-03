@@ -1,78 +1,79 @@
 <template>
-    <div class=" bg-white-blue">
-        <div class="container mx-auto max-w-7xl">
-            <div class="w-full flex flex-col items-center justify-center">
-                <div class="w-[86%] flex flex-col items-center justify-center pt-12 2xl:pt-8">
-                    <div class="w-full flex items-center justify-center"><p class="md:text-[40px] text-[20px] text-center font-bold leading-loose pb-4  text-dark-blue">Merci pour votre commande !</p></div>
-                    <div class=" p-1 w-[319px] border border-dark-blue rounded-full flex flex-row justify-between items-center my-[73px]">
-                        <img src="../../assets/done.svg">
-                        <div class="w-2/3 font-bold text-[15px]  text-dark-blue">Payement validé</div>
+    <div class="bg-white-blue h-screen">
+        <div class="container mx-auto max-w-7xl text-dark-blue">
+            <div class="w-full flex items-center justify-center py-16">
+                <div class="px-4 md:px-0 w-full md:w-3/4 flex flex-col items-center space-y-8 md:space-y-12">
+                    <h3 class="font-bold text-base md:text-xl">Merci pour votre commande !</h3>
+                    <div class="w-fit flex items-center justify-start rounded-full space-x-6 md:space-x-8 border-[2px] border-dark-blue px-2 py-2">
+                        <img src="../../assets/done.svg" class="h-8 md:h-10" alt="">
+                        <p class="font-bold text-xs md:text-sm pr-6 md:pr-10">Payement validé</p>
                     </div>
-                    <div class="w-full flex flex-row justify-center py-4 border border-dark-blue rounded-full px-4">
-                        <div class="flex flex-col justify-center items-center w-1/4">
-                            <p class="font-bold text-[10px] md:text-[15px] text-center">Numéro de commande</p>
-                            <p class=" text-soft-dark-blue mt-2 md:mt-4 text-[9px] md:text-sm">56785</p>
+                    <br>
+                    <div class="w-full lg:w-3/4 flex flex-col md:flex-row items-center border-[3px] border-dark-blue rounded-2xl md:rounded-full md:px-5">
+                        <div class="w-full md:w-1/2 flex items-center justify-around">
+                            <div class="w-1/2 md:w-fit flex flex-col items-center space-y-1 py-8">
+                                <p class="text-[#000] font-bold text-xs md:text-sm">Numéro de commande</p>
+                                <p class="font-medium text-xs md:text-sm">5675</p>
+                            </div>
+                            <div class="bg-dark-blue w-[3px] h-14"></div>
+                            <div class="w-1/2 md:w-fit flex flex-col items-center space-y-1 py-8">
+                                <p class="text-[#000] font-bold text-xs md:text-sm">Date</p>
+                                <p class="font-medium text-xs md:text-sm">Avr 02, 2023</p>
+                            </div>
+                            <div class="bg-dark-blue w-[3px] h-14 hidden md:flex"></div>
                         </div>
-                        <div class="flex flex-col justify-center items-center border-x-2 border-dark-blue w-1/4">
-                            <p class="font-bold text-[10px] md:text-[15px]">Date</p>
-                            <p class=" text-soft-dark-blue mt-2 md:mt-4 text-[9px] md:text-sm">{{ today.toShortFormat() }}</p>
-                        </div>
-                        <div class="flex flex-col justify-center items-center border-x-2 border-dark-blue w-1/4">
-                            <p class="font-bold text-[10px] md:text-[15px]">Total</p>
-                            <p class=" text-soft-dark-blue mt-2 md:mt-4 text-[9px] md:text-sm">{{ total }} MAD</p>
-                        </div>
-                        <div class="flex flex-col justify-center items-center w-1/4">
-                            <p class="font-bold text-[10px] md:text-[15px]">Payment Method</p>
-                            <p class=" text-soft-dark-blue mt-2 md:mt-4 text-[9px] md:text-sm">{{ payment}}</p>
+                        <div class="w-full md:w-1/2 flex items-center justify-around">
+                            <div class="w-1/2 md:w-fit flex flex-col items-center space-y-1 py-8">
+                                <p class="text-[#000] font-bold text-xs md:text-sm">Total</p>
+                            <p class="font-medium text-xs md:text-sm">2650 MAD</p>
+                            </div>
+                            <div class="bg-dark-blue w-[3px] h-14"></div>
+                            <div class="w-1/2 md:w-fit flex flex-col items-center space-y-1 py-8">
+                                <p class="text-[#000] font-bold text-xs md:text-sm">Payment Method</p>
+                                <p class="font-medium text-xs md:text-sm">Carte bancaire</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="my-20 w-full flex flex-row justify-around">
-                        <button class="p-1 md:p-2  border border-dark-blue rounded-full flex flex-row justify-between items-center">
-                            <img src="../../assets/download-a.svg" class="md:h-auto h-9">
-                            <spn class="font-semibold text-[10px] ml-2 md:text-[20px]  text-dark-blue">Téléchargez votre facture</spn>
+                    <div class="w-full flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-16 pt-4">
+                        <button class="border-[2px] border-dark-blue hover:bg-[#c0e4ff] transition duration-200 ease-in flex items-center font-semibold space-x-2 py-2 px-2 rounded-full pr-5 text-sm md:text-base">
+                            <img src="../../assets/download-a.svg" class="h-8 md:h-10" alt="">
+                            <span>Téléchargez votre facture</span>
                         </button>
-                        <!-- <button class="p-1 md:p-2  border border-dark-blue rounded-full flex flex-row justify-between items-center bg-dark-blue text-white-color">
-                            <img src="../../assets/start-over.svg" class="md:h-auto h-9">
-                            <spn class="font-semibold text-[10px] md:text-[20px] ml-2 text-white-color">Choisir un autre PACK</spn>
-                        </button> -->
-                        <router-link to="/pack-selection">
-                            <button class="p-1 md:p-2  border border-dark-blue rounded-full flex flex-row justify-between items-center bg-dark-blue text-white-color">
-                            <img src="../../assets/start-over.svg" class="md:h-auto h-9">
-                            <spn class="font-semibold text-[10px] md:text-[20px] ml-2 text-white-color">Choisir un autre PACK</spn>
-                        </button>
-                        </router-link>
+                        <router-link to="/pack-selection"><button class="bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out flex text-white-color items-center font-semibold space-x-2 py-2 px-2 rounded-full pr-5 text-sm md:text-base">
+                            <img src="../../assets/start-over.svg" class="h-8 md:h-10" alt="">
+                            <span>Choisir un autre PACK</span>
+                        </button></router-link>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </template>
 
 <script setup>
-import { useSecondStepStore } from '../../stors/SecondStepStore'
-import { useEndPoint } from "../../stors/endpoint";
-import { computed } from 'vue'
+// import { useSecondStepStore } from '../../stors/SecondStepStore'
+// import { useEndPoint } from "../../stors/endpoint";
+// import { computed } from 'vue'
 
-const liver = useSecondStepStore();
-const user = useEndPoint();
+// const liver = useSecondStepStore();
+// const user = useEndPoint();
 
-const payment = user.type_paiement.type.desc;
-Date.prototype.toShortFormat = function() {
-const monthNames = ["Jan", "Feb", "Mar", "Apr",
-                    "May", "Jun", "Jul", "Aug",
-                    "Sep", "Oct", "Nov", "Dec"];
-const day = this.getDate();
-const monthIndex = this.getMonth();
-const monthName = monthNames[monthIndex];
-const year = this.getFullYear();
-return `${monthName} ${day},${year}`;  
-}
-let today = new Date();
+// const payment = user.type_paiement.type.desc;
+// Date.prototype.toShortFormat = function() {
+// const monthNames = ["Jan", "Feb", "Mar", "Apr",
+//                     "May", "Jun", "Jul", "Aug",
+//                     "Sep", "Oct", "Nov", "Dec"];
+// const day = this.getDate();
+// const monthIndex = this.getMonth();
+// const monthName = monthNames[monthIndex];
+// const year = this.getFullYear();
+// return `${monthName} ${day},${year}`;  
+// }
+// let today = new Date();
 
 
-const total = computed(() => {
-  return fourniture.total + liver.total + liver.plastificationTotal;
-})
+// const total = computed(() => {
+//   return fourniture.total + liver.total + liver.plastificationTotal;
+// })
 
 </script>
