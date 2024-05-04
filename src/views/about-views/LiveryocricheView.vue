@@ -3,14 +3,14 @@
         <div class="container flex flex-col items-center justify-between">
             <div class="w-full md:w-3/4 py-[28px] font-bold md:text-[41px] text-[20px]">Livréeo créche  </div>
             <div v-for="articl in articls" class="w-full">
-                <paragraphComponent :articl="articl.articl" :content="articl.text"/>
+                <!-- <paragraphComponent :articl="articl.articl" :content="articl.text"/> -->
             </div>
         </div> 
     </div>
     <SiteMapComponent/>
 </template>
 <script setup>
-import paragraphComponent from '../../components/about/paragraphComponent.vue';
+//import paragraphComponent from '../../components/about/paragraphComponent.vue';
 import SiteMapComponent from '../../components/SiteMapComponent.vue'
 const articls = [
     {

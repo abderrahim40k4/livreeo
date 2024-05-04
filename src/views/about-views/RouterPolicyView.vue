@@ -3,7 +3,7 @@
         <div class="container flex flex-col items-center justify-between">
             <div class="w-full md:w-3/4 py-[28px] font-bold md:text-[41px] text-[20px]">Politique de retour</div>
             <div v-for="articl in articls" class="w-full">
-                <paragraphComponent :articl="articl.articl" :content="articl.text"/>
+                <!-- <paragraphComponent :articl="articl.articl" :content="articl.text"/> -->
             </div>
             <div class="w-full mt-[40px] flex justify-center items-center">
                 <tableComponent/>
@@ -16,7 +16,7 @@
     <SiteMapComponent/>
 </template>
 <script setup>
-import paragraphComponent from '../../components/about/paragraphComponent.vue';
+//import paragraphComponent from '../../components/about/paragraphComponent.vue';
 import tableComponent from '../../components/about/tableComponent.vue';
 import RetourForm from '../../components/about/comndRetourForm.vue';
 import SiteMapComponent from '../../components/SiteMapComponent.vue'

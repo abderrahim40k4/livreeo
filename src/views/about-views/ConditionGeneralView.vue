@@ -6,14 +6,14 @@
                 Les présentes conditions de vente sont conclues d’une part par la société livréeo S.ARL au capital social de 150.000 DHS dont le siège social est situé à ......................................, immatriculée au Registre du Commerce et des Sociétés de ............................... sous le numéro ......................... ci-après dénommée "livréeo S.ARL » et gérant le site www.livreeo.ma et, d’autre part, par toute personne physique ou morale souhaitant procéder à un achat via le site internet www.livreeo.ma dénommée ci-après " l’acheteur 
             </div>
             <div v-for="articl in articls" class="w-full">
-                <paragraphComponent :articl="articl.articl" :content="articl.text"/>
+                <!-- <paragraphComponent :articl="articl.articl" :content="articl.text"/> -->
             </div>
         </div> 
     </div>
     <SiteMapComponent/>
 </template>
 <script setup>
-import paragraphComponent from '../../components/about/paragraphComponent.vue';
+//import paragraphComponent from '../../components/about/paragraphComponent.vue';
 import SiteMapComponent from '../../components/SiteMapComponent.vue'
 const articls = [
     {
