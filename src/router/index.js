@@ -6,10 +6,10 @@ import LivresFourniture from '../views/LivresFourniture.vue'
 import List from '../views/SchooleListView.vue'
 import ListView from '../views/ListView.vue'
 import Contact from '../views/ContatcView.vue'
-import conditionLegal from '../views/about-views/ConditionGeneralView.vue'
+import conditionLegal from '../views/about-views/ConditionsGeneralesView.vue'
 import HowWeAre from '../views/about-views/HowWeAreView.vue'
 import SuivreCommande from '../views/SuivreCommande.vue'
-import Liveryocriche from '../views/about-views/LiveryocricheView.vue'
+import LivreeoCrecheView from '../views/about-views/LivreeoCrecheView.vue'
 import Partnerships from '../views/about-views/PartnershipsView.vue'
 import RouterPolicy from '../views/about-views/RouterPolicyView.vue'
 import Livreson from '../views/about-views/LivresonModalitiView.vue'
@@ -99,8 +99,8 @@ const router = createRouter({
           component: Contact
         },
         {
-          path: '/about/condition-general',
-          name: 'condition-general',
+          path: '/about/conditions-generales',
+          name: 'condition-generale',
           component: conditionLegal
         },
         {
@@ -109,9 +109,9 @@ const router = createRouter({
           component: HowWeAre
         },
         {
-          path: '/about/livero-criche',
-          name: 'livero-criche',
-          component: Liveryocriche
+          path: '/about/livreeo-creche',
+          name: 'LivreeoCrecheView',
+          component: LivreeoCrecheView
         },
         {
           path: '/about/partenariats-associatifs',

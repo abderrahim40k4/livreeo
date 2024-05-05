@@ -5,28 +5,27 @@
             <div class="flex"> 
                 <img src="../assets/logofoot.svg" class="h-[52px] md:h-[62px] 2xl:h-[74px]" alt="logo">
             </div>
-            <div class="w-full grid sm:grid-cols-2 md:grid-cols-3 md:space-x-6 xl:space-x-10 px-3 xl:px-10 space-y-4 md:space-y-0">
+            <div class="w-full grid sm:grid-cols-2 md:grid-cols-3 md:space-x-6 xl:space-x-10 px-3 xl:px-10 space-y-4 md:space-y-0 z-40">
                 <div class="pt-10 md:pt-12">
                     <h2 class="text-base md:text-lg 2xl:text-[23.18px] font-medium mb-4 xl:mb-10">À PROPOS DE LIVRÉEO</h2>
                     <div class="flex flex-col space-y-3">
-                        <router-link to="/" class="text-white text-sm md:text-base 2xl:text-xl font-light">Qui sommes nous ?</router-link>
-                        <a href="/" class="text-white text-sm md:text-base 2xl:text-xl font-light">Livréeo créche</a>
-                        <a href="/" class="text-white text-sm md:text-base 2xl:text-xl font-light">Livréeo recrute</a>
+                        <router-link to="/about/how-we-are" class="text-white-color text-sm md:text-base 2xl:text-xl font-light cursor-pointer">Qui sommes nous ?</router-link>
+                        <router-link to="/about/livreeo-creche" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Livréeo créche</router-link>
+                        <router-link to="/" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Livréeo recrute</router-link>
                     </div>
                 </div>
                 <div class="pt-8 md:pt-12">
                     <h2 class="text-base md:text-lg 2xl:text-[23.18px] font-medium mb-4 xl:mb-10">SERVICE CLIENT</h2>
                     <div class="flex flex-col space-y-3">
-                        <router-link  to="/contactez-nous" class="text-white text-sm md:text-base 2xl:text-xl font-light">Contactez-nous</router-link>
-                        <a href="/" class="text-white text-sm md:text-base 2xl:text-xl font-light">Modalité de livraison </a>
-                        <a href="/" class="text-white text-sm md:text-base 2xl:text-xl font-light">Politique de retour</a>
+                        <router-link  to="/contactez-nous" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Contactez-nous</router-link>
+                        <a href="/" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Modalité de livraison </a>
+                        <a href="/" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Politique de retour</a>
                     </div>
                 </div>
                 <div class="pt-8 md:pt-12">
                     <h2 class="text-base md:text-lg 2xl:text-[23.18px] font-medium mb-4 xl:mb-10">INFORMATIONS</h2>
                     <div class="flex flex-col space-y-3">
-                        <a href="/" class="text-white text-sm md:text-base 2xl:text-xl font-light w-4/5">Conditions générales de ventes </a>
-                        
+                        <router-link to="/about/conditions-generales" class="text-white-color text-sm md:text-base 2xl:text-xl font-light w-4/5">Conditions générales de ventes </router-link>
                     </div>
                 </div>
             </div>
