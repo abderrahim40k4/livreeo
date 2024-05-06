@@ -3,12 +3,12 @@
         <table class="w-full table-fixed border-[4px] border-dark-blue p-[16px] text-[16px]">
             <thead>
                 <tr >
-                <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Catégorie  </th>
-                <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Changement<br> d'avis  </th>
-                <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Erreur</th>
-                <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Défectueux</th>
-                <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Endommagé <br>/ Cassé</th>
-                <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Faux / Non Authentique</th>
+                    <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Catégorie  </th>
+                    <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Changement<br> d'avis  </th>
+                    <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Erreur</th>
+                    <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Défectueux</th>
+                    <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Endommagé <br>/ Cassé</th>
+                    <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Faux / Non Authentique</th>
                 </tr>
             </thead>
            <tbody>

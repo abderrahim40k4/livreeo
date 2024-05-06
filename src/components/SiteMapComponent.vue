@@ -19,7 +19,7 @@
                     <div class="flex flex-col space-y-3">
                         <router-link  to="/contactez-nous" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Contactez-nous</router-link>
                         <a href="/" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Modalité de livraison </a>
-                        <a href="/" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Politique de retour</a>
+                        <router-link to="/about/politique-de-retour" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Politique de retour</router-link>
                     </div>
                 </div>
                 <div class="pt-8 md:pt-12">

@@ -11,7 +11,7 @@ import HowWeAre from '../views/about-views/HowWeAreView.vue'
 import SuivreCommande from '../views/SuivreCommande.vue'
 import LivreeoCrecheView from '../views/about-views/LivreeoCrecheView.vue'
 import Partnerships from '../views/about-views/PartnershipsView.vue'
-import RouterPolicy from '../views/about-views/RouterPolicyView.vue'
+import PolitiqueRetour from '../views/about-views/PolitiqueRetour.vue'
 import Livreson from '../views/about-views/LivresonModalitiView.vue'
 import StatutCommande from '../views/StatutCommande.vue'
 import Bascket from '../views/BasketView.vue'
@@ -119,9 +119,9 @@ const router = createRouter({
           component: Partnerships
         },
         {
-          path: '/about/router-polic',
-          name: 'router-policy',
-          component: RouterPolicy
+          path: '/about/politique-de-retour',
+          name: 'Politique-de-retour',
+          component: PolitiqueRetour
         },
         {
           path: '/about/Livreson',
