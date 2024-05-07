@@ -12,7 +12,7 @@ import SuivreCommande from '../views/SuivreCommande.vue'
 import LivreeoCrecheView from '../views/about-views/LivreeoCrecheView.vue'
 import Partnerships from '../views/about-views/PartnershipsView.vue'
 import PolitiqueRetour from '../views/about-views/PolitiqueRetour.vue'
-import Livreson from '../views/about-views/LivresonModalitiView.vue'
+import ModaliteLivraison from '../views/about-views/ModaliteLivraison.vue'
 import StatutCommande from '../views/StatutCommande.vue'
 import Bascket from '../views/BasketView.vue'
 import ModeLivraison from '../views/ModeLivraison.vue'
@@ -124,9 +124,9 @@ const router = createRouter({
           component: PolitiqueRetour
         },
         {
-          path: '/about/Livreson',
-          name: 'livreson',
-          component: Livreson
+          path: '/about/modalite-de-livraison',
+          name: 'ModaliteLivraison',
+          component: ModaliteLivraison
         },
         {
           path: '/suivre-commande',

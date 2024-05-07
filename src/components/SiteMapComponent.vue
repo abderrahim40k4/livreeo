@@ -18,7 +18,7 @@
                     <h2 class="text-base md:text-lg 2xl:text-[23.18px] font-medium mb-4 xl:mb-10">SERVICE CLIENT</h2>
                     <div class="flex flex-col space-y-3">
                         <router-link  to="/contactez-nous" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Contactez-nous</router-link>
-                        <a href="/" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Modalité de livraison </a>
+                        <router-link  to="/about/modalite-de-livraison" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Modalité de livraison</router-link>
                         <router-link to="/about/politique-de-retour" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Politique de retour</router-link>
                     </div>
                 </div>
