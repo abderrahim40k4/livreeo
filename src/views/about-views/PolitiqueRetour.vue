@@ -24,26 +24,26 @@
                             <tr>
                                 <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8 font-bold text-center">Manuels</td>
                                 <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/x-icone.svg" alt="false" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
                             </tr>
                             <tr>
                                 <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8 font-bold text-center">Fournitures</td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
                             </tr>
                             <tr>
                                 <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4 font-bold text-center">Accesoires<br> scolaires</td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
-                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
                             </tr>
                         </tbody>
                     </table>

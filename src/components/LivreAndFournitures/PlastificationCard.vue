@@ -39,7 +39,7 @@
                     <div class="w-full flex flex-col-reverse md:flex-row"> 
                         <div class="w-full md:w-[70%] mt-6">
                             <div class="w-full flex items-center justify-end pr-4 lg:pr-12">
-                                <button @click="selectAll()" class="font-semibold text-dark-blue text-xs md:text-base bg-[#F0F9FF] py-1.5 px-4 md:px-8 rounded-full">Selectionez Tous</button>
+                                <button @click="selectAll()" class="font-semibold text-dark-blue text-xs md:text-base bg-[#F0F9FF] hover:bg-[#c6e7ff] transition duration-200 ease-in py-1.5 px-4 md:px-8 rounded-full">Selectionez Tous</button>
                             </div>   
                             <div class="h-[300px] md:h-[420px] overflow-y-auto space-y-4 md:space-y-6">
                                 <div v-for="(livres, category) in props.selectedLiv" :key="category">
@@ -83,7 +83,7 @@
                                                         <input type="checkbox" :id="livre.id" :value="livre" class="hidden" v-model="checkedPlst">
                                                         <div @click="handleDivClick(livre.id)" class="relative cursor-pointer">
                                                             <img src="../../assets/checkbox-liv.svg" class="h-4 md:h-6" alt="">
-                                                            <img v-if="myLivres.includes(livre.id)" src="../../assets/inside.svg" class="w-3 h-3 absolute right-1 top-1" alt="">
+                                                            <img v-if="myLivres.includes(livre.id)" src="../../assets/inside.svg" class="w-2 md:w-3 h-2 md:h-3 absolute right-[3px] md:right-1 top-[3px] md:top-1" alt="">
                                                         </div>
                                                     </div>
                                                 </div>
