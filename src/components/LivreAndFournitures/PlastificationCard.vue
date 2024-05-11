@@ -4,7 +4,7 @@
             <!--Button-->
             
             <!--Etape 1-->
-            <div class="w-full flex items-start justify-start rounded-[35px] bg-[#F0F9FF]">
+            <div class="w-full flex items-start justify-start rounded-[27px] sm:rounded-[32px] lg:rounded-[52px] bg-[#F0F9FF]">
                 <div class="w-full pb-4 sm:pb-0 sm:w-[55%] flex flex-col pt-4 lg:pt-6 pl-5 lg:pl-8 pr-2 lg:pr-4">
                     <DisclosureButton 
                         id="secondbtn" 
@@ -59,12 +59,13 @@
                                                 </div>
                                                 <div>
                                                     <p class="text-dark-blue text-[10px] md:text-sm font-medium">{{ livre.name }}</p>
+                                                    <p class="flex md:hidden text-dark-blue text-[10px] md:text-[15px] font-semibold">{{ livre.prix }} MAD</p>
                                                 </div>
                                             </div>
                                             <div class="w-1/2 flex items-center justify-start">
                                                 <div class="w-full flex items-center justify-center">
-                                                    <div class="w-1/3 flex items-center justify-end">
-                                                        <div class="w-28 h-5 md:h-7 rounded-full text-xs md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
+                                                    <div class="w-1/2 md:w-1/3 flex items-center justify-end">
+                                                        <div class="w-16 md:w-28 h-5 md:h-7 rounded-full text-[10px] md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
                                                             <div class="cursor-pointer">
                                                                 -
                                                             </div>
@@ -76,10 +77,10 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="w-1/3 flex items-center justify-end">
+                                                    <div class="hidden md:w-1/3 md:flex items-center justify-end">
                                                         <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ livre.prix }} MAD</p>
                                                     </div>
-                                                    <div class="w-1/3 flex items-center justify-center">                                                        
+                                                    <div class="w-1/2 md:w-1/3 flex items-center justify-center">                                                        
                                                         <input type="checkbox" :id="livre.id" :value="livre" class="hidden" v-model="checkedPlst">
                                                         <div @click="handleDivClick(livre.id)" class="relative cursor-pointer">
                                                             <img src="../../assets/checkbox-liv.svg" class="h-4 md:h-6" alt="">
@@ -99,7 +100,7 @@
                             />
                         </div>
                     </div>    
-                    <div class="w-full flex items-center justify-between px-3 lg:px-0 pt-4 lg:pt-8 lg:pl-10 lg:pr-52">
+                    <div class="w-full flex flex-col md:flex-row space-y-3 md:space-y-0 items-center justify-between px-3 lg:px-0 pt-4 lg:pt-8 lg:pl-10 lg:pr-52">
                         <div>
                             <h3 class="text-xs md:text-base font-semibold text-dark-blue">TOTAL = {{ totalPlst }} DHS</h3>
                         </div>

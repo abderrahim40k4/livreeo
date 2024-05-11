@@ -2,19 +2,23 @@
     <div class="container mx-auto max-w-7xl text-dark-blue">
         <div class="w-full flex items-center justify-center">
             <div class="w-full flex flex-col items-center">
-                <div class="w-full flex items-center justify-evenly pt-10 2xl:pt-16">
-                    <router-link to="/Livres-Fourniture">
-                        <div class="cursor-pointer">
-                            <img src="../assets/back-arraw.svg" class="w-6 h-6 md:w-9 md:h-9" alt="">
-                        </div>
-                    </router-link>
-                    <div>
+                <div class="w-full flex items-center justify-center md:justify-evenly pt-10 2xl:pt-16">
+                    <div class="w-1/5 flex items-center justify-center">
+                        <router-link to="/Livres-Fourniture">
+                            <div class="cursor-pointer">
+                                <img src="../assets/back-arraw.svg" class="w-6 h-6 md:w-9 md:h-9" alt="">
+                            </div>
+                        </router-link>
+                    </div>
+                    <div class="w-3/5 text-center">
                         <h3 class="text-sm md:text-xl font-semibold leading-6">Souhaitez-vous compléter votre commande ?</h3>
                     </div>
-                    <div class="w-6 md:w-9 h-6 md:h-9 flex items-center justify-center rounded-full border-[2px] border-dark-blue hover:bg-[#f4faffd0] transition duration-200 ease-in-out cursor-pointer">
-                        <router-link to="/bascket">
-                            <img src="../assets/close.svg" class="h-3 md:h-5" alt="close">
-                        </router-link>
+                    <div class="w-1/5 flex items-center justify-center">
+                        <div class="w-6 md:w-9 h-6 md:h-9 flex items-center justify-center rounded-full border-[2px] border-dark-blue hover:bg-[#f4faffd0] transition duration-200 ease-in-out cursor-pointer">
+                            <router-link to="/bascket">
+                                <img src="../assets/close.svg" class="h-3 md:h-5" alt="close">
+                            </router-link>
+                        </div>
                     </div>
                 </div> 
                 <div class="w-4/5 flex flex-col md:flex-row items-center justify-center md:justify-between pt-10 md:pt-16 pb-4 space-y-6 md:space-y-0">

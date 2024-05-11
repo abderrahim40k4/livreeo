@@ -6,7 +6,7 @@
         :class="props.cart !== 0 ? 'bg-dark-blue' : 'bg-[#D4D4D4]'"
         class="absolute -top-1 -right-2 md:-right-3 w-6 md:w-10 h-6 md:h-10 rounded-full flex items-center justify-center">
             <img src="../../assets/panier.svg" class="h-4 md:h-6" alt="">
-            <img v-if="props.cart !== 0" src="../../assets/panier2.png" class="absolute pt-2 w-2" alt="">
+            <img v-if="props.cart !== 0" src="../../assets/panier2.png" class="absolute pt-1.5 md:pt-2 w-1.5 md:w-2" alt="">
         </div>
     </div>
 </template>

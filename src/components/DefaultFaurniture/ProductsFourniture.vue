@@ -103,12 +103,13 @@
                       </div>
                       <div>
                           <p class="text-dark-blue text-[10px] md:text-sm font-medium">{{ product.name }}</p>
+                          <p class="text-dark-blue text-[10px] md:text-[15px] font-semibold md:hidden">{{ product.prix }} MAD</p>
                       </div>
                     </div>
                     <div class="w-1/2 flex items-center justify-start">
                       <div class="w-full flex items-center justify-center">
-                          <div class="w-1/3 flex items-center justify-end">
-                              <div class="w-28 h-4 md:h-7 rounded-full text-[9px] md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
+                          <div class="w-1/2 md:w-1/3 flex items-center justify-end">
+                              <div class="w-16 md:w-28 h-4 md:h-7 rounded-full text-[9px] md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
                                   <div @click="decreaseQuantity(product)" class="cursor-pointer">
                                       -
                                   </div>
@@ -120,10 +121,10 @@
                                   </div>
                               </div>
                           </div>
-                          <div class="w-1/3 flex items-center justify-end">
+                          <div class="hidden md:w-1/3 md:flex items-center justify-end">
                             <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ product.prix }} MAD</p>
                           </div>
-                          <div class="w-1/3 flex items-center justify-center">
+                          <div class="w-1/2 md:w-1/3 flex items-center justify-center">
                             <input type="checkbox" :id="product.id" :value="product" class="hidden" v-model="checkedProducts">                                                        
                             <div @click="handleDivClick(product)" class="relative w-6 md:w-9 h-6 md:h-9 rounded-full bg-dark-blue flex items-center justify-center cursor-pointer hover:bg-[#004179e5] transition duration-200 ease-in-out">
                               <svg class="h-3 md:h-5" viewBox="0 0 30 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -140,7 +141,7 @@
                   </div>
                 </div>
               </div>  
-              <div class="w-full flex items-center justify-between pt-4 lg:pt-8 pb-2">
+              <div class="w-full flex flex-col md:flex-row space-y-3 md:space-y-0 items-center justify-between pt-4 lg:pt-8 pb-2">
                 <div class="pl-3 xl:pl-8">
                   <h3 class="text-xs md:text-base font-semibold text-dark-blue">TOTAL = {{ totalProducts }} DHS</h3>
                 </div>
