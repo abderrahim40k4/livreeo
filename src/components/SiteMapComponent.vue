@@ -11,7 +11,7 @@
                     <div class="flex flex-col space-y-3">
                         <router-link to="/about/how-we-are" class="text-white-color text-sm md:text-base 2xl:text-xl font-light cursor-pointer">Qui sommes nous ?</router-link>
                         <router-link to="/about/livreeo-creche" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Livréeo créche</router-link>
-                        <router-link to="/" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Livréeo recrute</router-link>
+                        <router-link to="/about/livreeo-recrute" class="text-white-color text-sm md:text-base 2xl:text-xl font-light">Livréeo recrute</router-link>
                     </div>
                 </div>
                 <div class="pt-8 md:pt-12">

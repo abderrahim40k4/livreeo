@@ -23,6 +23,8 @@ import paymentMethod from '../views/UserInfo/paymentMethod.vue'
 import cartInfo from '../views/UserInfo/cartInfoView.vue'
 import facture from '../views/UserInfo/comondView.vue'
 import TypeFourniture from '../views/TypeFourniture.vue'
+import Recrutement from '../views/about-views/RecrutementView.vue'
+import RecrutementForm from '../views/about-views/RecrutementForm.vue';
 
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -142,6 +144,16 @@ const router = createRouter({
           path: '/type-fournitures',
           name: 'Type Fournitures',
           component: TypeFourniture
+        },
+        {
+          path: '/about/livreeo-recrute',
+          name: 'Livreeo Recrute',
+          component: Recrutement
+        },
+        {
+          path: '/about/livreeo-recrute-form',
+          name: 'Livreeo Recrute Form',
+          component: RecrutementForm
         },
     ]
   })
