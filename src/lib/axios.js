@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 const axios = Axios.create({
-    baseURL: "http://livreeo.ma/API/public/api",
+    baseURL: "https://livreeo.ma/api/public",
     timeout: 60000,
     headers: {
         Accept: "application/json"

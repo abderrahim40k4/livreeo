@@ -34,8 +34,9 @@ export const useFirstStepStore = defineStore("firstStepStore", {
   actions: {
     async fetchCitys(){
       try {
-        const data = await axios.get('/shopping')
+        const data = await axios.get('/cities')
         this.Citys = data.data
+        console.log(this.Citys);
       }
       catch (error) {
         alert(error)
@@ -44,7 +45,7 @@ export const useFirstStepStore = defineStore("firstStepStore", {
     },
     async fetchSchools(){
       try {
-        const data = await axios.get('/shopping/'+ this.SelectedCity)
+        const data = await axios.get('/schools/'+ this.SelectedCity)
         this.Schools = data.data
       }
       catch (error) {
@@ -54,7 +55,7 @@ export const useFirstStepStore = defineStore("firstStepStore", {
     },
     async fetchClasses(){
       try {
-        const data = await axios.get('/shopping/'+ this.SelectedCity +'/'+ this.SelectedSchool)
+        const data = await axios.get('/groups/'+ this.SelectedSchool)
         this.Class = data.data
       }
       catch (error) {

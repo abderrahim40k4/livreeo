@@ -20,7 +20,7 @@
                 <ListboxOption 
                 v-slot="{ active, selected }"
                 v-for="option in props.options"
-                :key="props.namechamp === 'ville' ? option.ville : option.ecole"
+                :key="props.namechamp === 'ville' ? option.name : option.ecole"
                 :value="option.id"
                 as="template"
                 >
@@ -35,7 +35,7 @@
                         selected ? 'font-bold' : 'font-normal',
                         'block truncate',
                     ]"
-                    >{{ props.namechamp === 'ville' ? option.ville : option.ecole }}</span
+                    >{{ props.namechamp === 'ville' ? option.name : option.ecole }}</span
                     >
                     <span
                     v-if="selected"
@@ -76,7 +76,7 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue']);
 
 const label = computed(() => {
-    return props.options.find(option => option.id === props.modelValue)?.ville; 
+    return props.options.find(option => option.id === props.modelValue)?.name; 
 })
 
 const label_two = computed(() => {
