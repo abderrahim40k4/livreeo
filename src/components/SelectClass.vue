@@ -50,14 +50,14 @@
                       :class="checked ? 'text-dark-blue font-semibold' : 'text-[#6192BF] font-medium'"
                       class="text-sm md:text-base transition duration-200 ease-in-out"
                     >
-                      {{ getFirstLettersUppercase(classe.nom) }}
+                      {{ getFirstLettersUppercase(classe.name) }}
                     </RadioGroupLabel>
                     <RadioGroupDescription
                       as="span"
                       :class="checked ? 'text-dark-blue font-semibold inline-block align-text-top ' : 'text-[#6192BF] font-medium inline-block align-text-top'"
                       class="text-[8px] md:text-xs transition duration-200 ease-in-out"
                     >
-                      <span>{{ classe.nom }}</span>
+                      <span>{{ classe.name }}</span>
                     </RadioGroupDescription>
                   </div>
                 </div>
