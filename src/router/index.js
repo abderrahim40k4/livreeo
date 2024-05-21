@@ -24,7 +24,8 @@ import cartInfo from '../views/UserInfo/cartInfoView.vue'
 import facture from '../views/UserInfo/comondView.vue'
 import TypeFourniture from '../views/TypeFourniture.vue'
 import Recrutement from '../views/about-views/RecrutementView.vue'
-import RecrutementForm from '../views/about-views/RecrutementForm.vue';
+import RecrutementForm from '../views/about-views/RecrutementForm.vue'
+import Bill from '../views/Bill.vue'
 
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -155,6 +156,12 @@ const router = createRouter({
           name: 'Livreeo Recrute Form',
           component: RecrutementForm
         },
+        {
+          path: '/bill',
+          name: 'Bill',
+          component: Bill,
+          meta: { hideNavBar: true }
+        }
     ]
   })
   
