@@ -16,7 +16,7 @@
                     Votre liste scolaire officielle livrée sans file d'attente. 
                     Toutes vos fournitures dans un seul colis, sans aucun souci
                 </p>
-                <router-link to="/pack-selection"><button class="bg-[#3273BA] hover:bg-[#3683d4dd] transition duration-200 ease-in-out text-white-color rounded-full py-3 px-6 xl:px-8 text-base xl:text-lg font-medium">Créez votre pack</button></router-link>
+                <router-link to="/pack"><button class="bg-[#3273BA] hover:bg-[#3683d4dd] transition duration-200 ease-in-out text-white-color rounded-full py-3 px-6 xl:px-8 text-base xl:text-lg font-medium">Créez votre pack</button></router-link>
             </div>
             <div class="w-full md:w-1/2 xl:w-3/5 flex items-center justify-end py-6 md:py-0">
                 <img src="../../assets/Boxes.svg" class="h-[400px] xl:h-[500px]" alt="boxes">

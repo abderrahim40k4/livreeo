@@ -1,5 +1,5 @@
 <template>
-    <div class="container pt-10 px-8">
+    <div class="container pt-10 pb-5 px-8">
         <div class="flex items-center justify-between pb-4">
             <div class="space-y-3">
                 <img src="../assets/logo-liv.svg" class="w-44 pb-5" alt="">
@@ -106,7 +106,7 @@
         <div class="pl-6 py-8">
             <img src="../../public/qrcode.svg" class="w-24 h-24" alt="qrcode">
         </div>
-        <div class="w-full flex items-center justify-between px-6 pt-3">
+        <div class="w-full flex items-center justify-between px-6">
             <div class="w-1/2 text-[#004079] flex flex-col">
                 <h1 class="text-3xl font-bold pb-2">Contactez-Nous</h1>
                 <p class="text-sm font-normal">Si vous rencontrez des difficultés à passer</p>

@@ -8,9 +8,10 @@
                     </div>
                 </router-link>
                 <div class="hidden xl:flex items-center mt-2">
-                    <ul class="w-full flex items-center space-x-5 xl:space-x-8">
-                        <li v-for="link in navlinks" :key="link.id" :class="`text-[13px] 2xl:text-[16px] font-normal text-dark-blue transition duration-200 ease-in-out ${$route.name === link.title ? 'border-b-2 border-accent-color font-semibold' : 'hover:border-b-2 hover:border-accent-color'}`">
+                    <ul class="w-full flex items-start space-x-5 xl:space-x-8">
+                        <li v-for="link in navlinks" :key="link.id" :class="`text-sm 2xl:text-base font-normal text-dark-blue transition duration-200 ease-in-out ${$route.name === link.title ? 'font-semibold' : ''}`"><!--border-b-2 border-accent-color --> <!--hover:border-b-2 hover:border-accent-color-->
                             <router-link :to="link.path">{{ link.title }}</router-link>
+                            <div v-if="$route.name === link.title" class="border-[1px] border-[#3476B9] rounded-lg mx-[15%]"></div>
                         </li>
                     </ul>
                 </div>
@@ -73,7 +74,7 @@ const navlinks = [
     {
         id : 1,
         title: 'Pack',
-        path: '/pack-selection'
+        path: '/pack'
     },
     {
         id : 2,

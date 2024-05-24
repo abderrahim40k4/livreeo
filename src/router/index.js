@@ -36,8 +36,8 @@ const router = createRouter({
             component: Home
           },
           {
-            path: '/pack-selection',
-            name: 'pack-selection',
+            path: '/Pack',
+            name: 'Pack',
             component: PackSelection
           },
           {
@@ -52,7 +52,7 @@ const router = createRouter({
           },
           {
             path: '/Fourniture/:categorie',
-            name: 'Fourniture',
+            name: 'Accessoires Scolaires',
             component: Fourniture
           },
           {
@@ -118,7 +118,7 @@ const router = createRouter({
         },
         {
           path: '/about/partenariats-associatifs',
-          name: 'Partenariats-associatifs',
+          name: 'Partenariats Associatifs',
           component: Partnerships
         },
         {

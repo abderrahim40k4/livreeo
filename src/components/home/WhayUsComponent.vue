@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="w-full flex items-center justify-center pt-4">
-                <router-link to="/pack-selection"><button class="text-[#FFFFFF] text-sm md:text-lg font-semibold bg-[#3273BA] hover:bg-[#3683d4dd] transition duration-200 ease-in-out px-6 py-3 rounded-full lg:mt-5">Je Commande</button></router-link>
+                <router-link to="/pack"><button class="text-[#FFFFFF] text-sm md:text-lg font-semibold bg-[#3273BA] hover:bg-[#3683d4dd] transition duration-200 ease-in-out px-6 py-3 rounded-full lg:mt-5">Je Commande</button></router-link>
             </div>
         </div>
     </div>
