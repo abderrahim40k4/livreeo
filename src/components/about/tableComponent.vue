@@ -1,44 +1,42 @@
 <template>
-    <div class="container flex flex-col items-center justify-between">
-        <table class="w-full table-fixed border-[4px] border-dark-blue p-[16px] text-[16px]">
-            <thead>
-                <tr >
-                    <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Catégorie  </th>
-                    <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Changement<br> d'avis  </th>
-                    <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Erreur</th>
-                    <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Défectueux</th>
-                    <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Endommagé <br>/ Cassé</th>
-                    <th class="border-[4px] border-dark-blue md:p-[16px] md:text-[20px] text-[10px]">Faux / Non Authentique</th>
-                </tr>
-            </thead>
-           <tbody>
-            <tr class="">
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] md:text-[20px] text-[10px] items-center">Manuels</td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] items-center"><img src="../../assets/worng.svg" class="w-2/4 md:w-auto"></td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] m-auto items-center"><img src="../../assets/rightt.svg"  class="w-2/4 md:w-auto"></td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] items-center"><img src="../../assets/rightt.svg"  class="w-2/4 md:w-auto"></td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] items-center"><img src="../../assets/rightt.svg"  class="w-2/4 md:w-auto"></td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] items-center"><img src="../../assets/rightt.svg"  class="w-2/4 md:w-auto"></td>
+    <table class="w-full table-fixed border-[2px] md:border-[3px] border-dark-blue text-[8px] sm:text-sm">
+        <thead>
+            <tr>
+                <th class="border-[3px] md:border-[4px] border-dark-blue py-2">Catégorie</th>
+                <th class="border-[3px] md:border-[4px] border-dark-blue py-2">Changement<br> d'avis</th>
+                <th class="border-[3px] md:border-[4px] border-dark-blue py-2">Erreur</th>
+                <th class="border-[3px] md:border-[4px] border-dark-blue py-2">Défectueux</th>
+                <th class="border-[3px] md:border-[4px] border-dark-blue py-2">Endommagé /<br> Cassé</th>
+                <th class="border-[3px] md:border-[4px] border-dark-blue py-2">Faux / Non<br> Authentique</th>
             </tr>
-            <tr class="">
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] md:text-[20px] text-[10px] items-center">Fournitures</td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] items-center"><img src="../../assets/rightt.svg"></td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] m-auto items-center"><img src="../../assets/rightt.svg"></td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px]  items-center"><img src="../../assets/rightt.svg"  class="w-2/4 md:w-auto"></td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] items-center"><img src="../../assets/rightt.svg"  class="w-2/4 md:w-auto"></td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] items-center"><img src="../../assets/rightt.svg"  class="w-2/4 md:w-auto"></td>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8 font-bold text-center">Manuels</td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/x-icone.svg" alt="false" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
             </tr>
-            <tr class="">
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] md:text-[20px] text-[10px] items-center">Accesoires <br>scolaires</td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] items-center"><img src="../../assets/rightt.svg"  class="w-2/4 md:w-auto"></td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] m-auto items-center"><img src="../../assets/rightt.svg"  class="w-2/4 md:w-auto"></td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] items-center"><img src="../../assets/rightt.svg"  class="w-2/4 md:w-auto"></td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] items-center"><img src="../../assets/rightt.svg"  class="w-2/4 md:w-auto"></td>
-                <td class="border-[4px] border-dark-blue md:p-[16px] p-[8px] items-center"><img src="../../assets/rightt.svg"  class="w-2/4 md:w-auto"></td>
+            <tr>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8 font-bold text-center">Fournitures</td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-8"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
             </tr>
-           </tbody>
-        </table>
-    </div>
+            <tr>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4 font-bold text-center">Accesoires<br> scolaires</td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+                <td class="w-1/6 border-[3px] md:border-[4px] border-dark-blue py-4"><img src="../../assets/right2.svg" alt="right" class="w-6 md:w-10 ml-4 sm:ml-10 xl:ml-16"></td>
+            </tr>
+        </tbody>
+    </table>
 </template>
 <script setup>
 </script>

@@ -50,13 +50,6 @@
                 </form>
             </div>
         </div>
-        <!-- <button
-            type="button"
-            @click="openModal"
-            class="rounded-md bg-dark-blue px-4 py-2 text-sm font-medium text-white hover:bg-light-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
-        >
-            Open dialog
-        </button> -->
         <TransitionRoot appear :show="isOpen" as="template">
             <Dialog as="div" @close="closeModal" class="relative z-10">
                 <TransitionChild
@@ -151,7 +144,7 @@ const addContact = async () => {
         message: info.message
     }
     
-    console.log('Sending data:', mydata);
+    //console.log('Sending data:', mydata);
 
     try {
         await data.addFormData(mydata);
