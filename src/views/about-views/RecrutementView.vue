@@ -141,6 +141,16 @@
 </template>
 <script setup>
 import SiteMapComponent from '../../components/SiteMapComponent.vue'
+import { useFormStore } from '../../stors/FormStore'
+import { onMounted } from 'vue';
+
+const data = useFormStore();
+
+
+
+onMounted(async () => {
+  await data.fetchOffers();
+});
 
 </script>
 
