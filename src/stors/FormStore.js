@@ -41,7 +41,7 @@ export const useFormStore = defineStore("myFormStore", {
       try {
         const response = await axios.get('/posts');
         this.offreEmp = response.data;
-        console.log(this.offreEmp);
+        //console.log(this.offreEmp.posts);
       } catch (error) {
         console.error('Error fetching offers:', error);
         if (error.response) {
