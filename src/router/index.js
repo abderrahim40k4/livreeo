@@ -152,9 +152,10 @@ const router = createRouter({
           component: Recrutement
         },
         {
-          path: '/about/livreeo-recrute-form',
+          path: '/about/livreeo-recrute/:id',
           name: 'Livreeo Recrute Form',
-          component: RecrutementForm
+          component: RecrutementForm,
+          props: true
         },
         {
           path: '/bill',

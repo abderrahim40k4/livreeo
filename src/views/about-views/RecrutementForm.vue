@@ -4,10 +4,10 @@
             <div class="w-full flex items-center justify-center">
                 <div class="flex flex-col md:flex-row w-[90%]">
                     <div class="w-full md:w-1/2 flex flex-col">
-                        <img src="../../assets/back-arraw.svg" class="w-11" alt="back">
+                        <router-link to="/about/livreeo-recrute"><img src="../../assets/back-arraw.svg" class="w-11" alt="back"></router-link>
                         <div class="space-y-2 pt-6">
-                            <p class="text-xs md:text-sm font-light">CDI . Casablanca / Paris</p>
-                            <p class="text-xs md:text-sm font-semibold">SEO Team Leader H/F</p>
+                            <p class="text-xs md:text-sm font-light">{{ contract_type }} . {{ city }}</p>
+                            <p class="text-xs md:text-sm font-semibold">{{ name }}</p>
                         </div>
                         <div class="space-y-2 pt-16">
                             <div class="flex items-center justify-start space-x-1">
@@ -119,7 +119,10 @@
 </template>
 <script setup>
 import SiteMapComponent from '../../components/SiteMapComponent.vue'
+import { useFormStore } from '../../stors/FormStore';
 import { ref } from 'vue'
+import { useRoute } from 'vue-router';
+
 import {
     Listbox,
     ListboxButton,
@@ -127,14 +130,16 @@ import {
     ListboxOption,
 } from '@headlessui/vue'
 
-  const people = [
-    { id: 1, name: 'SEO Team Leader H/F'},
-    { id: 2, name: 'Web Developer'},
-    { id: 3, name: 'UI/UX Designer'},
-    { id: 4, name: '3D Desiner'},
-    { id: 5, name: 'SEO Team Leader H/F'},
-  ]
-  const selectedPerson = ref(people[0])
+  
+  const route = useRoute();
+  const data = useFormStore();
+  const people = data.offreEmp.posts
+  //const selectedOffer = data.offreEmp.posts.id[route.params.id];
+  const selectedPerson = ref('')
+
+  const contract_type = ref(route.params.contract_type);
+  const city = ref(route.params.city);
+  const name = ref(route.params.name);
 
   function triggerFileInput() {
     document.getElementById('resume').click();

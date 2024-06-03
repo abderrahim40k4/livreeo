@@ -18,7 +18,7 @@
                                     <p class="text-xs md:text-sm font-semibold">{{ item.name }}</p>
                                 </div>
                                 <div>
-                                    <router-link to="/about/livreeo-recrute-form"><img src="../../assets/recrute-icone.svg" class="h-10 md:h-12 pr-5 md:pr-10" alt=""></router-link>
+                                    <router-link :to="{ name: 'Livreeo Recrute Form', params: { id: item.id, contract_type: item.contract_type, city: item.city.name, name: item.name } }"><img src="../../assets/recrute-icone.svg" class="h-10 md:h-12 pr-5 md:pr-10" alt=""></router-link>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                                     <p class="text-xs md:text-sm font-semibold">{{ item.name }}</p>
                                 </div>
                                 <div>
-                                    <router-link to="/about/livreeo-recrute-form"><img src="../../assets/recrute-icone.svg" class="h-10 md:h-12 pr-5 md:pr-10" alt=""></router-link>
+                                    <router-link :to="`/about/livreeo-recrute/${item.id}`"><img src="../../assets/recrute-icone.svg" class="h-10 md:h-12 pr-5 md:pr-10" alt=""></router-link>
                                 </div>
                             </div>
                         </div>
