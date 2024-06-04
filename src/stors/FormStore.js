@@ -52,5 +52,14 @@ export const useFormStore = defineStore("myFormStore", {
         alert('Failed to fetch offers. Please try again later.');
       }
     },
+    async applyJob(data) {
+      try {
+        await axios.post('/recruitment', data);
+      } 
+      catch (error) {
+        console.error('Error in job form:', error);
+        throw error;
+      }
+    },
   },
 });

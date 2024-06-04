@@ -28,16 +28,13 @@
                         </div>
                     </div>
                     <div class="w-full md:w-1/2">
-                        <form @submit.prevent="" class="space-y-6 text-dark-blue pt-5">
+                        <form class="space-y-6 text-dark-blue pt-5">
                             <div class="md:flex md:space-x-5 space-y-5 md:space-y-0">
-                                <input type="text" name="nom" placeholder="Nom Complet" class="border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:font-light placeholder:text-sm text-sm md:text-base pl-4 h-12 md:h-16 w-full">
-                                <input type="number" name="telephone" placeholder="Numéro de Téléphone" class="border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 placeholder:font-light h-12 md:h-16 w-full">
+                                <input type="text" name="nom" placeholder="Nom Complet" v-model="info.name" class="border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:font-light placeholder:text-sm text-sm md:text-base pl-4 h-12 md:h-16 w-full">
+                                <input type="number" name="telephone" placeholder="Numéro de Téléphone" v-model="info.phone" class="border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 placeholder:font-light h-12 md:h-16 w-full">
                             </div>
                             <div class="w-full flex space-x-5">
-                                <input type="text" name="mail" placeholder="Adresse E-mail" class="border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 placeholder:font-light h-12 md:h-16 w-[60%]">
-                                <!-- <select class="border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 placeholder:font-light h-12 md:h-16 w-[40%]">
-                                    <option value="SEO Team Leader H/F">SEO Team Leader H/F</option>
-                                </select> -->
+                                <input type="text" name="mail" placeholder="Adresse E-mail" v-model="info.email" class="border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 placeholder:font-light h-12 md:h-16 w-[60%]">
                                 <Listbox v-model="selectedPerson">
                                     <div class="relative flex items-center bg-white-color border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg text-sm md:text-base placeholder:font-light h-12 md:h-16 w-[40%]">
                                         <ListboxButton
@@ -94,7 +91,7 @@
                                 </Listbox>
                             </div>
                             <div class="flex space-x-5">
-                                <input type="text" name="ville" placeholder="Ville" class="border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 placeholder:font-light h-12 md:h-16 w-1/4">
+                                <input type="text" name="ville" placeholder="Ville" v-model="info.city" class="border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 placeholder:font-light h-12 md:h-16 w-1/4">
                                 <div class="flex items-center justify-between border py-2 pr-2 border-dark-blue border-opacity-35 bg-white-color focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 placeholder:font-light h-12 md:h-16 w-3/4">
                                     <p class="text-sm font-normal">Upload CV <span class="text-xs">( JPG, PDF, 5MB )</span></p>
                                     <div @click="triggerFileInput" class="h-full flex items-center border-[1px] border-dark-blue border-dashed bg-white-color cursor-pointer rounded-md px-12">
@@ -103,12 +100,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div type="button" class="flex w-fit pt-3">
+                            <button type="submit" @click.prevent="applyOffre" class="flex w-fit pt-3">
                                 <div class="flex items-center justify-between cursor-pointer bg-dark-blue hover:bg-[#004179e5] font-light text-base md:text-lg text-white-color px-3 md:px-8 py-1.5 md:py-2 rounded-full">
                                     <span>Envoyer</span>
                                     <img src="../assets/right.svg" class="h-6 md:h-8" alt="">
                                 </div>
-                            </div>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -119,9 +116,9 @@
 </template>
 <script setup>
 import SiteMapComponent from '../../components/SiteMapComponent.vue'
-import { useFormStore } from '../../stors/FormStore';
-import { ref } from 'vue'
-import { useRoute } from 'vue-router';
+import { useFormStore } from '../../stors/FormStore'
+import { ref, watch, reactive } from 'vue'
+import { useRoute } from 'vue-router'
 
 import {
     Listbox,
@@ -134,12 +131,30 @@ import {
   const route = useRoute();
   const data = useFormStore();
   const people = data.offreEmp.posts
-  //const selectedOffer = data.offreEmp.posts.id[route.params.id];
-  const selectedPerson = ref('')
+  const selectedPerson = ref(people.find(person => person.id === parseInt(route.params.id)));
 
-  const contract_type = ref(route.params.contract_type);
-  const city = ref(route.params.city);
-  const name = ref(route.params.name);
+  const info = reactive({
+    name: '',
+    phone: '',
+    email: '',
+    city: '',
+    post_id: selectedPerson.value.id,
+    cv: ''
+  });
+
+  const contract_type = ref(route.query.contract_type);
+  const city = ref(route.query.city);
+  const name = ref(route.query.name);
+
+  // Watch for changes in selectedPerson and update the related data
+    watch(selectedPerson, (newVal) => {
+        if (newVal) {
+            contract_type.value = newVal.contract_type;
+            city.value = newVal.city.name;
+            name.value = newVal.name;
+            info.post_id = newVal.id;
+        }
+    });
 
   function triggerFileInput() {
     document.getElementById('resume').click();
@@ -147,9 +162,33 @@ import {
 function handleFileChange(event) {
     const file = event.target.files[0];
     if (file) {
-    // Handle the file as needed
-    console.log("Selected file:", file.name);
+        console.log("Selected file:", file.name);
     }
+}
+
+const applyOffre = async () => {
+    let mydata = {
+        name: info.name,
+        phone: info.phone.toString(),
+        email: info.email,
+        city: info.city,
+        post_id: info.post_id,
+        cv: info.cv
+    }
+
+    console.log('Sending data:', mydata);
+
+    // try {
+    //     await data.applyJob(mydata);
+    //     // Reset form fields after successful submission
+    //     info.name = '';
+    //     info.phone = '';
+    //     info.email = '';
+    //     info.city = '';
+    //     //openModal();
+    // } catch (error) {
+    //     console.error('Error submitting the form:', error);
+    // }
 }
 
 </script>

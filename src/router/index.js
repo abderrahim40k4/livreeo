@@ -155,7 +155,7 @@ const router = createRouter({
           path: '/about/livreeo-recrute/:id',
           name: 'Livreeo Recrute Form',
           component: RecrutementForm,
-          props: true
+          props: (route) => ({ id: route.params.id, contract_type: route.query.contract_type, city: route.query.city, name: route.query.name })
         },
         {
           path: '/bill',

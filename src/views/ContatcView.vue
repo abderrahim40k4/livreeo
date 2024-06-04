@@ -116,7 +116,7 @@
 <script setup>
 import { useFormStore } from '../stors/FormStore.js'
 import SiteMapComponent from '../components/SiteMapComponent.vue'
-import { reactive, ref } from 'vue';
+import { reactive, ref } from 'vue'
 
 //HeadlessUi imports
 import {
