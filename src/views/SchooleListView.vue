@@ -7,9 +7,9 @@
             </p>
         </div>
         <div class="flex flex-col md:flex-row items-center md:items-start justify-evenly space-y-6 md:space-y-0">
-            <InputFaildComponentes labale="Ville :" text="Casablanca"/>
-            <InputFaildComponentes labale="École :" text="Lycée lyautey "/>
-            <InputFaildComponentes labale="Classe :" text="5 ème "/>
+            <InputFaildComponentes labale="Ville :" placeholder="Casablanca" :options="data.getCitys" v-model="city_id" />
+            <InputFaildComponentes labale="École :" placeholder="Lycée lyautey" :options="data.getSchools" v-model="school_id" />
+            <InputFaildComponentes labale="Classe :" placeholder="5 ème" :options="data.getClasses" v-model="group_id" />
         </div>
         <div class="flex items-center justify-center py-8 md:py-12">
             <button class="bg-dark-blue rounded-full text-white-color text-base font-semibold px-10 py-2 hover:bg-[#004179e5] transition duration-200 ease-in-out">Suivant</button>
@@ -18,5 +18,36 @@
 </template>
 <script setup>
 import InputFaildComponentes from '../components/listsh/InputFaildComponentes.vue';
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useFirstStepStore } from '../stors/FirstStepStore';
+import { ref, watch } from 'vue';
+const data = useFirstStepStore();
+
+const city_id = ref(null)
+const school_id = ref(null)
+const group_id = ref(null)
+
+data.fetchCitys();
+
+watch(city_id, (newValue) => {
+  if (newValue !== null) {
+    data.SelectedCity = city_id.value;
+    //console.log(data.SelectedCity);
+    data.fetchSchools();
+  }
+});
+
+watch(school_id, (newValue) => {
+  if (newValue !== null) {
+    data.SelectedSchool = school_id.value;
+    data.fetchClasses();
+  }
+});
+
+watch(group_id, (newValue) => {
+  if (newValue !== null) {
+    console.log(group_id);
+  }
+});
+
+
 </script>
