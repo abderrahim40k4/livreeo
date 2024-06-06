@@ -12,6 +12,8 @@ export const useFirstStepStore = defineStore("firstStepStore", {
     SelectedSchool: null,
     SelectedClass: null,
     SelectedLangues: null,
+    //For list fournitures
+    SelectedGroupL: []
   }),
   getters: {
     getCitys(state){
@@ -36,7 +38,7 @@ export const useFirstStepStore = defineStore("firstStepStore", {
       try {
         const data = await axios.get('/cities')
         this.Citys = data.data.cities
-        console.log(this.Citys);
+        //console.log(this.Citys);
       }
       catch (error) {
         alert(error)

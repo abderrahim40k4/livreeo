@@ -1,7 +1,7 @@
 <template>
 <div class="relative flex flex-col space-y-4">
     <label for="countries" class="text-base font-medium dark:text-white">{{ labale }}</label>
-    <Listbox @update:modelValue="value => emit('update:modelValue', value)" :model-value="props.modelValue">
+    <Listbox v-model="selectedValue">
         <ListboxButton class="relative rounded-full ring-2 ring-dark-blue focus:outline-none text-[#6192BF] text-sm font-medium w-44 py-3 flex pl-4">
             <span v-if="selectedPerson" class="block truncate">{{ selectedPerson.name }}</span>
             <span v-else class="block truncate"> {{ placeholder }} </span>
@@ -20,7 +20,7 @@
                 <ListboxOption
                     v-for="person in transformedOptions"
                     v-slot="{ active, selected }"
-                    :key="person.id"
+                    :key="getOptionKey(person)"
                     :value="person.id"
                     as="template"
                 >
@@ -41,7 +41,7 @@
 
 </template>
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import {
     Listbox,
     ListboxButton,
@@ -62,7 +62,10 @@ const props = defineProps({
         required: true,
         default: () => []
     },
-    modelValue: [String, Number],
+    modelValue: {
+        type: [String, Number, Array],
+        default: null
+    },
     placeholder:{
         type: String,
         default: '',
@@ -71,23 +74,35 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue']);
 
-const selectedPerson = computed(() => {
-    return Array.isArray(props.options) ? props.options.find(option => option.id === props.modelValue) : null;
-});
-
-
 // Transform the options to a flat structure with combined group and language names
 const transformedOptions = computed(() => {
     if(props.labale === "Classe :"){
         return props.options.flatMap(group => 
         group.languages.map(language => ({
-            id: `${group.id}-${language.id}`,
+            id: [group.id, language.id],
             name: `${group.name} (${language.name})`
             }))
         );
     }
     return props.options;  
 });
+
+const selectedValue = ref(props.modelValue);
+
+watch(selectedValue, (newValue) => {
+    emit('update:modelValue', newValue);
+});
+
+const selectedPerson = computed(() => {
+    if (props.labale === "Classe :") {
+        return transformedOptions.value.find(option => JSON.stringify(option.id) === JSON.stringify(selectedValue.value));
+    }
+    return props.options.find(option => option.id === selectedValue.value);
+});
+
+function getOptionKey(person) {
+    return props.labale === 'Classe :' ? `${person.id[0]}-${person.id[1]}` : person.id;
+}
 </script>
 <style scoped>
 

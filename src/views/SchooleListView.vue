@@ -12,7 +12,14 @@
             <InputFaildComponentes labale="Classe :" placeholder="5 ème" :options="data.getClasses" v-model="group_id" />
         </div>
         <div class="flex items-center justify-center py-8 md:py-12">
-            <button class="bg-dark-blue rounded-full text-white-color text-base font-semibold px-10 py-2 hover:bg-[#004179e5] transition duration-200 ease-in-out">Suivant</button>
+          <router-link :to="group_id.length === 0 ? '#' : '/list-view'">
+            <button 
+              :class="group_id.length === 0 ? 'cursor-default pointer-events-none opacity-50' : ''"
+              class="bg-dark-blue rounded-full text-white-color text-base font-semibold px-10 py-2 hover:bg-[#004179e5] transition duration-200 ease-in-out"
+            >
+              Suivant
+            </button>
+          </router-link>
         </div>
     </div>
 </template>
@@ -24,7 +31,7 @@ const data = useFirstStepStore();
 
 const city_id = ref(null)
 const school_id = ref(null)
-const group_id = ref(null)
+const group_id = ref([])
 
 data.fetchCitys();
 
@@ -44,10 +51,10 @@ watch(school_id, (newValue) => {
 });
 
 watch(group_id, (newValue) => {
-  if (newValue !== null) {
-    console.log(group_id);
+  if (newValue.length !== 0) {
+    data.SelectedGroupL = group_id.value;
+    //console.log(group_id.value);
   }
 });
-
 
 </script>
