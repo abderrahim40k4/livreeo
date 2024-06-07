@@ -66,44 +66,37 @@ export const useFirstStepStore = defineStore("firstStepStore", {
       }
     },
     async fetchLangues(){
-      try {
-        const data = await axios.get('/shopping/'+ this.SelectedCity +'/'+ this.SelectedSchool + '/' + this.SelectedClass)
-        this.langues = data.data
-      }
-      catch (error) {
-        alert(error)
-        console.log(error)
-      }
+      this.langues = this.Class.find(group => group.id === this.SelectedClass).languages;
     },
-    async fetchLivres(){
-        try 
-        {
-          const requestBody = {
-            id_ville: this.SelectedCity,
-            id_ecole: this.SelectedSchool,
-            id_classe: this.SelectedClass,
-            langues: this.SelectedLangues
-          };
-          // console.log(requestBody);
-          const response = await axios.post(
-            "/choixdelivre",
-            requestBody
-          );
-          const responseData = response.data;
-          if (response.status === 200) {
-            const books = responseData;
-            this.livres = books;
-            console.log(this.livres);
-          }
-          else{
-            console.log("not working !");
-          }
-        }
-        catch (error) {
-            alert(error)
-            console.log(error)
-        }
-    }
+    // async fetchLivres(){
+    //     try 
+    //     {
+    //       const requestBody = {
+    //         id_ville: this.SelectedCity,
+    //         id_ecole: this.SelectedSchool,
+    //         id_classe: this.SelectedClass,
+    //         langues: this.SelectedLangues
+    //       };
+    //       // console.log(requestBody);
+    //       const response = await axios.post(
+    //         "/choixdelivre",
+    //         requestBody
+    //       );
+    //       const responseData = response.data;
+    //       if (response.status === 200) {
+    //         const books = responseData;
+    //         this.livres = books;
+    //         console.log(this.livres);
+    //       }
+    //       else{
+    //         console.log("not working !");
+    //       }
+    //     }
+    //     catch (error) {
+    //         alert(error)
+    //         console.log(error)
+    //     }
+    // }
   },
 });
 

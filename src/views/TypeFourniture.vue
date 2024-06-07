@@ -24,17 +24,17 @@
                 <div class="w-4/5 flex flex-col md:flex-row items-center justify-center md:justify-between pt-10 md:pt-16 pb-4 space-y-6 md:space-y-0">
                     <div class="flex flex-col items-center justify-center space-y-5 md:space-y-10">
                         <img src="../../calculatrice.png" class="h-56 md:h-52" alt="calculatrice">
-                        <router-link :to="{ name: 'Fourniture', params: { categorie: 'calculatrice' }}"><button class="bg-white-blue hover:bg-[#e8f4fa] transition duration-200 ease-in-out text-xs md:text-base font-semibold py-2 md:py-3 min-w-40 rounded-full">Calculatrices</button></router-link>
+                        <router-link :to="{ name: 'Accessoires Scolaires', params: { categorie: 'calculatrice' }}"><button class="bg-white-blue hover:bg-[#e8f4fa] transition duration-200 ease-in-out text-xs md:text-base font-semibold py-2 md:py-3 min-w-40 rounded-full">Calculatrices</button></router-link>
                     </div>
 
                     <div class="flex flex-col items-center justify-center space-y-10">
                         <img src="../assets/trousse.png" class="h-56 md:h-52" alt="trousse">
-                        <router-link :to="{ name: 'Fourniture', params: { categorie: 'trousse' }}"><button class="bg-white-blue hover:bg-[#e8f4fa] transition duration-200 ease-in-out text-xs md:text-base font-semibold py-2 md:py-3 min-w-40 rounded-full">Trousses</button></router-link>
+                        <router-link :to="{ name: 'Accessoires Scolaires', params: { categorie: 'trousse' }}"><button class="bg-white-blue hover:bg-[#e8f4fa] transition duration-200 ease-in-out text-xs md:text-base font-semibold py-2 md:py-3 min-w-40 rounded-full">Trousses</button></router-link>
                     </div>
 
                     <div class="flex flex-col items-center justify-center space-y-10">
                         <img src="../assets/cartable.png" class="h-56 md:h-52" alt="cartable">
-                        <router-link :to="{ name: 'Fourniture', params: { categorie: 'cartable' }}"><button class="bg-white-blue hover:bg-[#e8f4fa] transition duration-200 ease-in-out text-xs md:text-base font-semibold py-2 md:py-3 min-w-40 rounded-full">Cartables</button></router-link>
+                        <router-link :to="{ name: 'Accessoires Scolaires', params: { categorie: 'cartable' }}"><button class="bg-white-blue hover:bg-[#e8f4fa] transition duration-200 ease-in-out text-xs md:text-base font-semibold py-2 md:py-3 min-w-40 rounded-full">Cartables</button></router-link>
                     </div>
                 </div>
             </div>

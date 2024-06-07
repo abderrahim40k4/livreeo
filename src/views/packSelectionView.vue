@@ -41,10 +41,10 @@
                     <router-link to="/"><img src="../assets/back-home.svg" class="h-10" alt="back"></router-link>
                   </div>
                   <div>
-                    <router-link to="/Livres-Fourniture">
+                    <router-link :to="langues === null ? '#' : '/Livres-Fourniture'">
                     <button 
                     @click="secstore.fetchLivres()" 
-                    :class="langues.length === 0 ? 'cursor-default pointer-events-none opacity-50' : ''"
+                    :class="langues === null ? 'cursor-default pointer-events-none opacity-50' : ''"
                     class="bg-dark-blue text-white-color hover:bg-[#004179e5] text-base font-semibold rounded-full min-w-36 py-2"
                     >
                     Suivant
@@ -80,7 +80,7 @@ const secstore = useSecondStepStore();
 const city_id = ref(null)
 const school_id = ref(null)
 const class_id = ref(null)
-const langues = ref([])
+const langues = ref(null)//[]
 
 mystore.fetchCitys();
 
@@ -104,11 +104,14 @@ watch(class_id, (newValue, oldValue) => {
     mystore.SelectedClass = class_id.value;
     //console.log(class_id.value);
     mystore.fetchLangues();
+    //langues.value = mystore.Class.find(group => group.id === mystore.SelectedClass).languages;
+    //console.log(langues);
   }
 });
 watch(langues, (newValue, oldValue) => {
   if (newValue !== null) {
-    mystore.SelectedLangues = langues.value.map(langue => langue.id);
+    mystore.SelectedLangues = langues.value;
+    // mystore.SelectedLangues = langues.value.map(langue => langue.id);
   }
 });
 

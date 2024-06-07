@@ -1,5 +1,5 @@
 <template>
-    <Listbox :model-value="props.modalClass" multiple>
+    <Listbox :model-value="props.modalClass"><!--multiple-->
         <ListboxOptions static>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-x-2 md:gap-x-10 gap-y-2 md:gap-y-5">
             <!--Default langues cards-->
@@ -21,7 +21,7 @@
             <ListboxOption
               v-for="person in props.options"
               :key="person.id"
-              :value="person"
+              :value="person.id"
               as="template"
               v-slot="{ selected }"
             >
@@ -32,7 +32,7 @@
               }"
               class="rounded-full text-xs md:text-sm cursor-pointer w-32 md:w-36 text-center py-3 md:py-4 transition duration-200 ease-in-out"
               >
-              {{ person.langue }}
+              {{ person.name }}
               </li>
             </ListboxOption>
           </div>

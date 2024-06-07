@@ -77,7 +77,7 @@ import plastification from '../assets/plastification.svg';
 
 const data = useSecondStepStore();
 
-const livres = data.getLivres;
+const livres = ref(data.livres);
 const fournitures = data.getFournitures;
 const selectedLiv = computed(() => {
     return data.getSelectedLivres;

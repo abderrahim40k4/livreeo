@@ -47,12 +47,12 @@
                                             <div class="w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10">
                                                 <div @click="selectedLivre = livre" class="cursor-pointer">
                                                     <div class="w-8 md:w-12">
-                                                        <img :src="livre.image" alt="livre">
+                                                        <img :src="livre.variants.image.path" alt="livre">
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <p class="text-dark-blue text-[10px] md:text-sm font-medium">{{ livre.name }}</p>
-                                                    <p class="flex md:hidden text-dark-blue text-[10px] font-semibold">{{ livre.prix }} MAD</p>
+                                                    <p class="flex md:hidden text-dark-blue text-[10px] font-semibold">{{ livre.price }} MAD</p>
                                                 </div>
                                             </div>
                                             <div class="w-1/2 flex items-center justify-start">
@@ -71,7 +71,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="hidden md:w-1/3 md:flex items-center justify-end">
-                                                        <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ livre.prix }} MAD</p>
+                                                        <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ livre.price }} MAD</p>
                                                     </div>
                                                     <div class="w-1/2 md:w-1/3 flex items-center justify-center">                                                        
                                                         <input type="checkbox" :id="livre.id" :value="livre" class="hidden" v-model="checkedLivre">
@@ -88,9 +88,9 @@
                             </div>  
                         </div>
                         <div class="w-full md:w-[30%] flex items-center justify-center mt-6">
-                            <LivreInfo 
+                            <!-- <LivreInfo 
                             :options="selectedLivre"
-                            />
+                            /> -->
                         </div>
                     </div>    
                     <div class="w-full flex flex-col md:flex-row space-y-3 md:space-y-0 items-center justify-between px-3 lg:px-0 pt-4 lg:pt-8 lg:pl-10 lg:pr-52">
@@ -182,11 +182,12 @@ function selectAll(){
         });
     }
 }
+console.log(props.livres);
 
 // Group books by category
 const livresByCategory = props.livres.reduce((acc, livre) => {
-    acc[livre.categorie] = acc[livre.categorie] || [];
-    acc[livre.categorie].push(livre);
+    acc[livre.category] = acc[livre.category] || [];
+    acc[livre.category].push(livre);
     return acc;
 }, {});
 
