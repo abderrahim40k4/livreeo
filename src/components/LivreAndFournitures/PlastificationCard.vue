@@ -52,9 +52,9 @@
                                             class="w-full flex items-center pt-4"
                                         >
                                             <div class="w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10">
-                                                <div @click="selectedLivre = livre" id="imgLiv" class="cursor-pointer">
+                                                <div @click="setSelectedLivre(livre)" id="imgLiv" class="cursor-pointer">
                                                     <div class="w-8 md:w-12">
-                                                        <img :src="livre.image" alt="livre">
+                                                        <img :src="livre.variants[0]?.image?.path" alt="livre">
                                                     </div>
                                                 </div>
                                                 <div>
@@ -78,7 +78,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="hidden md:w-1/3 md:flex items-center justify-end">
-                                                        <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ livre.prix }} MAD</p>
+                                                        <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ livre.price }} MAD</p>
                                                     </div>
                                                     <div class="w-1/2 md:w-1/3 flex items-center justify-center">                                                        
                                                         <input type="checkbox" :id="livre.id" :value="livre" class="hidden" v-model="checkedPlst">
@@ -96,6 +96,7 @@
                         </div>
                         <div class="w-full md:w-[30%] flex items-center justify-center mt-6">
                             <LivreInfo
+                            :firstBook="firstBook"
                             :options="selectedLivre"
                             />
                         </div>
@@ -121,7 +122,7 @@
 
 <script setup>
 //vue import
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 
 //components
 import LivreInfo from './LivreInfo.vue'
@@ -134,16 +135,29 @@ const data = useSecondStepStore();
 
 
 const props = defineProps({
-    selectedLiv: Array,
+    selectedLiv: {
+        type: Array,
+        required: true
+    }
 })
+
+watchEffect(() => {
+    console.log(props.selectedLiv);
+});
 
 
 const checkedPlst = ref([])
-// const selectedLivre = ref(props.selectedLiv.value[0])
-const selectedLivre = ref(data.livres[0]);
+const firstBook = computed(() => props.selectedLiv[0] || {});
+ 
+const selectedLivre = ref('');
 
 
 const myLivres =  ref([])
+
+// Function to set the selected book
+function setSelectedLivre(livre) {
+    selectedLivre.value = livre;
+}
 
 function handleDivClick(id) {
     const index = myLivres.value.indexOf(id);
@@ -181,18 +195,18 @@ const totalPlst = computed(() => {
 
 //Button Select All
 function selectAll(){
-     // Clear the checkedLivre array first
-     checkedPlst.value = [];
-     myLivres.value = [];
+    checkedPlst.value = [];
+    myLivres.value = [];
 
-    // Iterate through each category
     for (const category in props.selectedLiv) {
-        // Iterate through each book in the category
-        props.selectedLiv[category].forEach(book => {
-            // Push the book into the checkedLivre array
-            checkedPlst.value.push(book);
-            myLivres.value.push(book.id);
-        });
+        if (Array.isArray(props.selectedLiv[category])) {
+            props.selectedLiv[category].forEach(book => {
+                checkedPlst.value.push(book);
+                myLivres.value.push(book.id);
+            });
+        } else {
+            console.error(`selectedLiv[${category}] is not an array`);
+        }
     }
 }
 

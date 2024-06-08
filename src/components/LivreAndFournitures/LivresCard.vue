@@ -45,9 +45,9 @@
                                             class="w-full flex items-center pt-4"
                                         >
                                             <div class="w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10">
-                                                <div @click="selectedLivre = livre" class="cursor-pointer">
+                                                <div @click="setSelectedLivre(livre)" class="cursor-pointer">
                                                     <div class="w-8 md:w-12">
-                                                        <img :src="livre.variants.image.path" alt="livre">
+                                                        <img :src="livre.variants[0]?.image?.path" alt="livre">
                                                     </div>
                                                 </div>
                                                 <div>
@@ -88,9 +88,10 @@
                             </div>  
                         </div>
                         <div class="w-full md:w-[30%] flex items-center justify-center mt-6">
-                            <!-- <LivreInfo 
+                            <LivreInfo 
+                            :firstBook="firstBook"
                             :options="selectedLivre"
-                            /> -->
+                            />
                         </div>
                     </div>    
                     <div class="w-full flex flex-col md:flex-row space-y-3 md:space-y-0 items-center justify-between px-3 lg:px-0 pt-4 lg:pt-8 lg:pl-10 lg:pr-52">
@@ -117,7 +118,7 @@
 
 <script setup>
 //vue import
-import { ref, computed } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 
 //components
 import LivreInfo from './LivreInfo.vue'
@@ -130,13 +131,26 @@ const data = useSecondStepStore();
 
 
 const props = defineProps({
-    livres: Array,
+    livres: {
+        type: Array,
+        required: true
+    }
 })
 
 
-const selectedLivre = ref(props.livres[0])
+// const selectedLivre = ref(props.livres[0])
+const firstBook = computed(() => props.livres[0]);
+ 
+const selectedLivre = ref('');
+
+
 const checkedLivre = ref([])
 const myLivres =  ref([])
+
+// Function to set the selected book
+function setSelectedLivre(livre) {
+    selectedLivre.value = livre;
+}
 
 function handleDivClick(id) {
     const index = myLivres.value.indexOf(id);
@@ -159,37 +173,48 @@ function addToCart(){
 function calcTotal(){
     const checkedLivreArray = checkedLivre.value;
     let total = checkedLivreArray.reduce((total, item) => {
-        data.total = total + (item.prix * item.quantity);
-        return total + (item.prix * item.quantity);
+        data.total = total + (item.price * item.quantity);
+        return total + (item.price * item.quantity);
     }, 0);
     return total;
 }
 
 
-//Button Select All
-function selectAll(){
-     // Clear the checkedLivre array first
-     checkedLivre.value = [];
-     myLivres.value = [];
 
-    // Iterate through each category
-    for (const category in livresByCategory) {
-        // Iterate through each book in the category
-        livresByCategory[category].forEach(book => {
-            // Push the book into the checkedLivre array
-            checkedLivre.value.push(book);
-            myLivres.value.push(book.id);
-        });
-    }
-}
-console.log(props.livres);
+// watchEffect(() => {
+//     console.log(props.livres);
+// });
 
 // Group books by category
-const livresByCategory = props.livres.reduce((acc, livre) => {
-    acc[livre.category] = acc[livre.category] || [];
-    acc[livre.category].push(livre);
-    return acc;
-}, {});
+const livresByCategory = computed(() => {
+    return props.livres.reduce((acc, livre) => {
+        acc[livre.category] = acc[livre.category] || [];
+        acc[livre.category].push(livre);
+        return acc;
+    }, {});
+});
+
+function selectAll() {
+    // Clear the checkedLivre array first
+    checkedLivre.value = [];
+    myLivres.value = [];
+
+    // Iterate through each category
+    for (const category in livresByCategory.value) {
+        // Check if livresByCategory[category] is an array
+        if (Array.isArray(livresByCategory.value[category])) {
+            // Iterate through each book in the category
+            livresByCategory.value[category].forEach(book => {
+                // Push the book into the checkedLivre array
+                checkedLivre.value.push(book);
+                myLivres.value.push(book.id);
+            });
+        } 
+        else {
+            console.error(`livresByCategory[${category}] is not an array`);
+        }
+    }
+}
 
 //Calcul total livre
 const totalLivre = computed(() => {
@@ -230,6 +255,4 @@ function increaseQuantity(item){
     background: #6192BF;
     border-radius: 5px;
 }
-
-
 </style>

@@ -60,7 +60,8 @@
 </template>
 <script setup>
 //import vue
-import { computed, ref } from 'vue'
+import { computed, onMounted , watchEffect } from 'vue'
+import { useRouter } from 'vue-router'
 
 //import components
 import SiteMapComponent from '../components/SiteMapComponent.vue'
@@ -76,12 +77,14 @@ import plastification from '../assets/plastification.svg';
 
 
 const data = useSecondStepStore();
+const router = useRouter();
 
-const livres = ref(data.livres);
+const livres = computed(() => data.getLivres);
+// watchEffect(() => {
+//     console.log(livres.value);
+// });
 const fournitures = data.getFournitures;
-const selectedLiv = computed(() => {
-    return data.getSelectedLivres;
-}) 
+const selectedLiv = computed(() => data.getSelectedLivres); 
 
 const cartLivre = computed(() => {
     return data.cartItems.length;

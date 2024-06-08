@@ -15,18 +15,17 @@ export const useSecondStepStore = defineStore("secondStepStore", {
     }),
     getters:{
       getLivres(state){
-        return state.livres;
-        //return state.livres.map(item => ({...item, quantity: 1}));
+        return state.livres.map(item => ({...item, quantity: 1}));
       },
       getFournitures(state){
         return state.faurnitures.map(item => ({...item, quantity: 1}));
       },
       getSelectedLivres(state){
         return state.cartItems.reduce((acc, livre) => {
-          acc[livre.categorie] = acc[livre.categorie] || [];
-          acc[livre.categorie].push(livre);
+          acc[livre.category] = acc[livre.category] || [];
+          acc[livre.category].push(livre);
           return acc;
-      }, {});
+        }, {});
       },
       countLivreInCart(state){
         return state.cartItems.length;
