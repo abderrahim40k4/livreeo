@@ -54,7 +54,7 @@
                                             <div class="w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10">
                                                 <div @click="setSelectedLivre(livre)" id="imgLiv" class="cursor-pointer">
                                                     <div class="w-8 md:w-12">
-                                                        <img :src="livre.variants[0]?.image?.path" alt="livre">
+                                                        <img :src="livre.variants?.[0]?.image?.path || 'default_image_path.png'" alt="livre">
                                                     </div>
                                                 </div>
                                                 <div>

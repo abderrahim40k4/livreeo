@@ -40,15 +40,15 @@
                                         <h3 class="text-xs md:text-lg font-semibold text-dark-blue pl-1">{{ category }}</h3>
                                         <div v-for="(product, index) in products" :key="product.id" :class="{'first-product w-full  pt-4': index === 0, 'other-products w-fit space-x-8 pt-1': index !== 0,'hidden': index !== 0 && !showOtherProducts[category]}" class="flex items-center">
                                             <div :class="index === 0 ? 'w-1/2 flex items-start md:items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10' : 'w-1/2 flex items-center space-x-1 md:pl-4 lg:pl-10'">
-                                                <div @click="selectedProduct = product, moveToTop(category, index)" class="cursor-pointer">
+                                                <div @click="setSelectedProduct(product), moveToTop(category, index), toggleOtherProducts(category)" class="cursor-pointer">
                                                     <div :class="index === 0 ? 'w-10 md:w-20' : 'w-7 md:w-14 ml-20'">
-                                                        <img :src="product.image" alt="livre">
+                                                        <img :src="product.variants[0]?.image?.path" alt="product">
                                                     </div>
                                                 </div>
                                                 <div :class="index !== 0 ? 'w-80 space-y-2' : 'space-y-2'">
                                                     <div>
-                                                        <p :class="index === 0 ? 'text-dark-blue text-[8px] md:text-xs font-medium' : 'text-dark-blue text-[6px] md:text-[9px] font-medium'"><span :class="index === 0 ? 'text-[10px] md:text-sm' : ''">{{product.marque}} :</span> {{ product.name }}</p>
-                                                        <p v-if="!index" class="flex md:hidden text-dark-blue text-[10px] md:text-[15px] font-semibold">{{ product.prix }} MAD</p>
+                                                        <p :class="index === 0 ? 'text-dark-blue text-[8px] md:text-xs font-medium' : 'text-dark-blue text-[6px] md:text-[9px] font-medium'"><span :class="index === 0 ? 'text-[10px] md:text-sm' : ''">{{product.name}}</span></p>
+                                                        <p v-if="!index" class="flex md:hidden text-dark-blue text-[10px] md:text-[15px] font-semibold">{{ product.price }} MAD</p>
                                                     </div>
                                                     <div v-if="index === 0" class="flex items-center">
                                                         <p @click="toggleOtherProducts(category)" class="text-dark-blue text-[8px] md:text-[10px] font-medium cursor-pointer">Autres modèles disponibles </p>
@@ -72,7 +72,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="hidden md:w-1/3 md:flex items-center justify-end">
-                                                    <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ product.prix }} MAD</p>
+                                                    <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ product.price }} MAD</p>
                                                 </div>
                                                 <div class="w-1/2 md:w-1/3 flex items-center justify-center">                                                        
                                                     <input type="checkbox" :id="product.id" :value="product" class="hidden" v-model="checkedLivre">
@@ -85,7 +85,7 @@
                                             </div>
                                             <div v-else>
                                                 <div class="flex items-center justify-center">
-                                                <p class="text-dark-blue text-[6px] md:text-[9px] font-bold">{{ product.prix }}.00 MAD</p>
+                                                <p class="text-dark-blue text-[6px] md:text-[9px] font-bold">{{ product.price }} MAD</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,6 +97,7 @@
                         <div class="w-full md:w-[30%] flex items-center justify-center mt-6">
                             <FournitureInfo 
                             :options="selectedProduct"
+                            :firstProduct="firstProduct"
                             />
                         </div>
                     </div>    
@@ -137,13 +138,23 @@ const data = useSecondStepStore();
 
 
 const props = defineProps({
-    fournitures: Array,
+    fournitures: {
+        type: Array,
+        required: true
+    },
 })
 
 
-const selectedProduct = ref(props.fournitures[0])
+const selectedProduct = ref('')
+const firstProduct= computed(() => props.fournitures[0]);
+
 const checkedLivre = ref([])
 const myProduct =  ref([])
+
+// Function to set the selected book
+function setSelectedProduct(product) {
+    selectedProduct.value = product;
+}
 
 function handleDivClick(id) {
     const index = myProduct.value.indexOf(id);
@@ -166,8 +177,8 @@ function addToCart(){
 function calcTotal(){
     const checkedLivreArray = checkedLivre.value;
     let total = checkedLivreArray.reduce((total, item) => {
-        data.total = total + (item.prix * item.quantity);
-        return total + (item.prix * item.quantity);
+        data.total = total + (item.price * item.quantity);
+        return total + (item.price * item.quantity);
     }, 0);
     return total;
 }
@@ -180,9 +191,9 @@ function selectAll(){
      myProduct.value = [];
 
     // Iterate through each category
-    for (const category in fournByCategory) {
+    for (const category in fournByCategory.value) {
         // Iterate through each product in the category
-        fournByCategory[category].forEach(product => {
+        fournByCategory.value[category].forEach(product => {
             // Push the product into the checkedLivre array
             checkedLivre.value.push(product);
             myProduct.value.push(product.id);
@@ -191,11 +202,14 @@ function selectAll(){
 }
 
 // Group fournitures by category
-const fournByCategory = props.fournitures.reduce((acc, product) => {
-    acc[product.categorie] = acc[product.categorie] || [];
-    acc[product.categorie].push(product);
-    return acc;
-}, {});
+const fournByCategory = computed(() => {
+    return props.fournitures.reduce((acc, product) => {
+        acc[product.category] = acc[product.category] || [];
+        acc[product.category].push(product);
+        return acc;
+    }, {});
+});
+
 
 //Calcul total livre
 const totalLivre = computed(() => {
@@ -225,7 +239,7 @@ function increaseQuantity(item){
 const showOtherProducts = ref({});
 
 // Initialize showOtherProducts with true for each category
-for (const category in fournByCategory) {
+for (const category in fournByCategory.value) {
   showOtherProducts.value[category] = true;
 }
 
@@ -240,8 +254,8 @@ const moveToTop = (category, index) => {
   if (index === 0) return;
 
   // Reorder the products array by moving the clicked product to the top
-  const [clickedProduct] = fournByCategory[category].splice(index, 1);
-  fournByCategory[category].unshift(clickedProduct);
+  const [clickedProduct] = fournByCategory.value[category].splice(index, 1);
+  fournByCategory.value[category].unshift(clickedProduct);
 };
 </script>
 <style scoped>

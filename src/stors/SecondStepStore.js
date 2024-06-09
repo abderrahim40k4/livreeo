@@ -31,7 +31,7 @@ export const useSecondStepStore = defineStore("secondStepStore", {
         return state.cartItems.length;
       },
       calcTotalPanier(state){
-        return state.plastificationTotal + state.cartItems.reduce((total, livre) => total + (livre.prix * livre.quantity), 0) + state.cartFournt.reduce((total, product) => total + (product.prix * product.quantity), 0); 
+        return state.plastificationTotal + state.cartItems.reduce((total, livre) => total + (livre.price * livre.quantity), 0) + state.cartFournt.reduce((total, product) => total + (product.price * product.quantity), 0); 
       }
     },
     actions:{
