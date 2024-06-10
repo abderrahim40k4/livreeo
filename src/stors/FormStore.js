@@ -4,6 +4,7 @@ import axios from "../lib/axios";
 export const useFormStore = defineStore("myFormStore", {
   state: () => ({
     offreEmp: [],
+    shipping: [],
   }),
   getters: {
     getOffers(state){
@@ -49,7 +50,6 @@ export const useFormStore = defineStore("myFormStore", {
           console.error('Response status:', error.response.status);
           console.error('Response headers:', error.response.headers);
         }
-        alert('Failed to fetch offers. Please try again later.');
       }
     },
     async applyJob(data) {
@@ -59,6 +59,15 @@ export const useFormStore = defineStore("myFormStore", {
       catch (error) {
         console.error('Error in job form:', error);
         throw error;
+      }
+    },
+    async fetchShipping() {
+      try {
+        const response = await axios.get('/shipping-types');
+        this.shipping = response.data;
+        //console.log(this.shipping.shipping_types);
+      } catch (error) {
+        console.error('Error fetching shipping types:', error);
       }
     },
   },

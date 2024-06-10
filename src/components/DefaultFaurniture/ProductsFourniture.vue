@@ -8,7 +8,7 @@
           <div class="xl:w-4/5">
             <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-x-8 sm:gap-x-16 lg:gap-x-0 gap-y-6 lg:gap-y-0 space-x-0 lg:space-x-14 xl:space-x-0">
               <!--meilleurs ventes-->
-              <div class="flex flex-col">
+              <!-- <div class="flex flex-col">
                 <h3 class="text-base lg:text-lg font-medium pb-1">Meilleurs ventes</h3>
                 <div class="flex items-center">
                   <input type="radio" name="checkbox" id="checkbox1" class="hidden" v-model="isChecked" value="croissant">
@@ -37,9 +37,10 @@
                   </label>
                   <p class="pl-3 text-xs lg:text-sm font-medium">Note des clients</p>
                 </div>
-              </div>
+              </div> -->
+              
               <!--Categories-->
-              <div class="flex flex-col">
+              <!-- <div class="flex flex-col">
                 <h3 class="text-base lg:text-lg font-medium pb-1">Categories</h3>
                 <div v-for="item in categories">
                   <div class="flex items-center">
@@ -52,9 +53,9 @@
                     <p class="pl-3 text-xs lg:text-sm font-medium">{{ item }}</p>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!--couleurs-->
-              <div class="flex flex-col">
+              <!-- <div class="flex flex-col">
                 <h3 class="text-base lg:text-lg font-medium pb-1">Couleurs</h3>
                 <div class="w-fit grid grid-cols-5 gap-y-1 gap-x-1 lg:gap-x-2">
                   <div v-for="item in color" class="flex items-center">
@@ -73,7 +74,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!--prix-->
               <div class="flex flex-col">
                 <h3 class="text-base lg:text-lg font-medium pb-1">Prix</h3>
@@ -98,12 +99,12 @@
                     <div class="w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10">
                       <div @click="selectedProduct = product" class="cursor-pointer">
                           <div class="w-16 md:w-24">
-                            <img :src="product.image" alt="product">
+                            <img :src="product.variants?.[0]?.image?.path" alt="product">
                           </div>
                       </div>
                       <div>
                           <p class="text-dark-blue text-[10px] md:text-sm font-medium">{{ product.name }}</p>
-                          <p class="text-dark-blue text-[10px] md:text-[15px] font-semibold md:hidden">{{ product.prix }} MAD</p>
+                          <p class="text-dark-blue text-[10px] md:text-[15px] font-semibold md:hidden">{{ product.price }} MAD</p>
                       </div>
                     </div>
                     <div class="w-1/2 flex items-center justify-start">
@@ -122,7 +123,7 @@
                               </div>
                           </div>
                           <div class="hidden md:w-1/3 md:flex items-center justify-end">
-                            <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ product.prix }} MAD</p>
+                            <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ product.price }} MAD</p>
                           </div>
                           <div class="w-1/2 md:w-1/3 flex items-center justify-center">
                             <input type="checkbox" :id="product.id" :value="product" class="hidden" v-model="checkedProducts">                                                        
@@ -267,7 +268,7 @@ const handleColorChange = (color) => {
 
 
 function getFournituresByCat(){
-  return props.products.filter(item => item.categorie === mycategorie.value);
+  return props.products.filter(item => item.category === mycategorie.value);
 }
 
 //manage quantity
@@ -323,33 +324,27 @@ function getUniqueTypes(fourniture) {
 }
 
 //Filter (Color)
-const color = ref(getUniqueColors(fournitures.value));
+// const color = ref(getUniqueColors(fournitures.value));
+
+// function getUniqueColors(fourniture) {
+//   const uniqueColorsSet = new Set();
+//   fourniture.forEach(item => {
+//     item.color.forEach(color => {
+//       uniqueColorsSet.add(color);
+//     });
+//   });
+//   //console.log(Array.from(uniqueColorsSet));
+//   return Array.from(uniqueColorsSet);
+// }
+
 
 // watch(mycategorie, () => {
+//   isChecked2.value = '';
 //   isChecked3.value = '';
+//   categories.value = getUniqueTypes(fournitures.value);
 //   color.value = getUniqueColors(fournitures.value);
 //   //console.log(categories.value);
 // });
-
-function getUniqueColors(fourniture) {
-  const uniqueColorsSet = new Set();
-  fourniture.forEach(item => {
-    item.color.forEach(color => {
-      uniqueColorsSet.add(color);
-    });
-  });
-  //console.log(Array.from(uniqueColorsSet));
-  return Array.from(uniqueColorsSet);
-}
-
-
-watch(mycategorie, () => {
-  isChecked2.value = '';
-  isChecked3.value = '';
-  categories.value = getUniqueTypes(fournitures.value);
-  color.value = getUniqueColors(fournitures.value);
-  //console.log(categories.value);
-});
 
 
 //function calcul total
@@ -361,7 +356,7 @@ function calcTotal(){
 
   let total = filteredProducts.reduce((total, item) => {
     //data.total = total + (item.prix * item.quantity);
-    return total + (item.prix * item.quantity);
+    return total + (item.price * item.quantity);
   }, 0);
   return total;
 }
@@ -374,7 +369,7 @@ const totalProducts = computed(() => {
 
 //count product in cart 
 function countProducts(){
-  const products = checkedProducts.value.filter(item => item.categorie === mycategorie.value);
+  const products = checkedProducts.value.filter(item => item.category === mycategorie.value);
   return products.length;
 }
 

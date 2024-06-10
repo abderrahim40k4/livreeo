@@ -4,67 +4,153 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
     state: () => ({
         fourniture: [
             {
-                id:1,
-                name:"EASTPAK OVAL",
-                prix: 360,
-                image: "calculatrice.png",
-                categorie: "calculatrice",
-                color: ["#000", "#3273BA", "#004079", "#DEEFF9"],
-                type: "calculatrice 1"
+                "id": 1,
+                "name": "trousse 1",
+                "description": null,
+                "type": "EXTRA",
+                "price": "10.00",
+                "status": 1,
+                "category": "trousse",
+                "variants": [
+                    {
+                        "id": 1,
+                        "color": "#000",
+                        "image": {
+                            "path": "https://livreeo.ma/api/public/files/15"
+                        },
+                        "status": 1,
+                        "created_at": null,
+                        "updated_at": null,
+                        "article": {
+                            "id": 6,
+                            "name": "extra 1",
+                            "description": null,
+                            "type": 3,
+                            "price": "10.00",
+                            "status": 1,
+                            "category_id": null,
+                            "created_at": null,
+                            "updated_at": null
+                        }
+                    }
+                ]
             },
             {
-                id:2,
-                name:"EASTPAK OVAL 2",
-                prix: 370,
-                image: "calculatrice2.png",
-                categorie: "calculatrice",
-                color: ["#FFA500", "#004079"],
-                type: "calculatrice 1"
+                "id": 2,
+                "name": "trousse 2",
+                "description": null,
+                "type": "EXTRA",
+                "price": "20.00",
+                "status": 1,
+                "category": "trousse",
+                "variants": [
+                    {
+                        "id": 1,
+                        "color": "#000",
+                        "image": {
+                            "path": "https://livreeo.ma/api/public/files/15"
+                        },
+                        "status": 1,
+                        "created_at": null,
+                        "updated_at": null,
+                        "article": {
+                            "id": 7,
+                            "name": "extra 2",
+                            "description": null,
+                            "type": 3,
+                            "price": "20.00",
+                            "status": 1,
+                            "category_id": null,
+                            "created_at": null,
+                            "updated_at": null
+                        }
+                    }
+                ]
             },
             {
-                id:22,
-                name:"EASTPAK OVAL 3",
-                prix: 390,
-                image: "calculatrice2.png",
-                categorie: "calculatrice",
-                color: ["#FFA500", "#FF0000"],
-                type: "calculatrice 2"
+                "id": 3,
+                "name": "Cartable 1",
+                "description": null,
+                "type": "EXTRA",
+                "price": "20.00",
+                "status": 1,
+                "category": "cartable",
+                "variants": [
+                    {
+                        "id": 1,
+                        "color": "#000",
+                        "image": {
+                            "path": "https://livreeo.ma/api/public/files/14"
+                        },
+                        "status": 1,
+                        "created_at": null,
+                        "updated_at": null,
+                        "article": {
+                            "id": 7,
+                            "name": "extra 2",
+                            "description": null,
+                            "type": 3,
+                            "price": "20.00",
+                            "status": 1,
+                            "category_id": null,
+                            "created_at": null,
+                            "updated_at": null
+                        }
+                    }
+                ]
             },
             {
-                id:3,
-                name:"EASTPAK OVAL 3",
-                prix: 200,
-                image: "trousse.png",
-                categorie: "trousse",
-                color: ["#000", "#FF0000"],
-                type: "trousse 2"
-            },
-            {
-                id:4,
-                name:"EASTPAK OVAL 4",
-                prix: 100,
-                image: "trousse.png",
-                categorie: "trousse",
-                color: ["#004079", "#00FF00"],
-                type: "trousse 1"
-            },
-            {
-                id:5,
-                name:"cartable defhe",
-                prix: 90,
-                image: "cartable.png",
-                categorie: "cartable",
-                color: ["#000", "#00FF00"],
-                type: "Trolley"
-            },
-            {
-                id:6,
-                name:"cartable ggggg",
-                prix: 180,
-                image: "cartable.png",
-                categorie: "cartable",
-                color: ["#000", "#004079"],
-                type: "Sac-à-dos"
+                "id": 4,
+                "name": "Cartable 2",
+                "description": null,
+                "type": "EXTRA",
+                "price": "20.00",
+                "status": 1,
+                "category": "cartable",
+                "variants": [
+                    {
+                        "id": 1,
+                        "color": "#000",
+                        "image": {
+                            "path": "https://livreeo.ma/api/public/files/14"
+                        },
+                        "status": 1,
+                        "created_at": null,
+                        "updated_at": null,
+                        "article": {
+                            "id": 7,
+                            "name": "extra 2",
+                            "description": null,
+                            "type": 3,
+                            "price": "20.00",
+                            "status": 1,
+                            "category_id": null,
+                            "created_at": null,
+                            "updated_at": null
+                        }
+                    },
+                    {
+                        "id": 2,
+                        "color": "#004079",
+                        "image": {
+                            "path": "https://livreeo.ma/api/public/files/15"
+                        },
+                        "status": 1,
+                        "created_at": null,
+                        "updated_at": null,
+                        "article": {
+                            "id": 7,
+                            "name": "extra 2",
+                            "description": null,
+                            "type": 3,
+                            "price": "20.00",
+                            "status": 1,
+                            "category_id": null,
+                            "created_at": null,
+                            "updated_at": null
+                        }
+                    }
+                ]
             },
         ],
         panierProducts: [],
@@ -75,13 +161,14 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
             return state.fourniture.map(item => ({...item, quantity: 1, selectedColor: ''}));
         },
         totalPanier(state){
-            return state.panierProducts.reduce((total, product) => total + (product.prix * product.quantity), 0);
+            return state.panierProducts.reduce((total, product) => total + (product.price * product.quantity), 0);
         }
     },
     actions:{
         deleteProductsByCategory(category) {
-            this.panierProducts = this.panierProducts.filter(item => item.categorie !== category);
+            this.panierProducts = this.panierProducts.filter(item => item.category !== category);
         },
+
 
     }
 });

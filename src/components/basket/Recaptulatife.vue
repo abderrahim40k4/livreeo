@@ -30,7 +30,7 @@
         <div class="w-full flex flex-col items-center justify-center pt-6">
             <button class="bg-dark-blue text-white-color rounded-full text-sm w-3/4 py-2 font-semibold hover:bg-[#004179e5] transition duration-200 ease-in"><router-link to="/mode-livraison">Valider mon panier</router-link></button>
             <p class="font-semibold py-[2px]">où</p>
-            <button class="bg-dark-blue text-white-color rounded-full text-[13px] w-3/4 py-2 font-light hover:bg-[#004179e5] transition duration-200 ease-in-out">Choisir un autre pack</button>
+            <button class="bg-dark-blue text-white-color rounded-full text-[13px] w-3/4 py-2 font-light hover:bg-[#004179e5] transition duration-200 ease-in-out"><router-link to="/pack">Choisir un autre pack</router-link></button>
         </div>
 
     </div>

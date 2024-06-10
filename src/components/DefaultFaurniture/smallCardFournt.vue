@@ -29,14 +29,4 @@ const props = defineProps({
         default: "../../assets/manuels.svg"
     },
 })
-// watch(data.panierProducts, () => {
-//   countProduct.value = data.panierProducts.filter(item => item.categorie === (props.name).toLowerCase()).length;
-//   console.log(countProduct.value);
-// });
-// const countPrdct = computed(() => {
-//     return data.panierProducts.filter(item => item.categorie === (props.name).toLowerCase()).length;
-// });
-
-
-
 </script>

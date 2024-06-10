@@ -53,17 +53,17 @@ const data = useDefaultFaurnitures();
 const products = data.getProducts;
 
 const cartCartable = computed(() => {
-  const products = data.panierProducts.filter(item => item.categorie === "cartable");
+  const products = data.panierProducts.filter(item => item.category === "cartables");
   return products.length;
 });
 
 const cartCalcul = computed(() => {
-  const products = data.panierProducts.filter(item => item.categorie === "calculatrice");
+  const products = data.panierProducts.filter(item => item.category === "calculatrices");
   return products.length;
 });
 
 const cartTrousse = computed(() => {
-  const products = data.panierProducts.filter(item => item.categorie === "trousse");
+  const products = data.panierProducts.filter(item => item.category === "trousses");
   return products.length;
 });
 

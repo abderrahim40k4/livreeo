@@ -18,9 +18,9 @@
                 <div class="flex items-center space-x-3 md:space-x-4 xl:space-x-6">
                     <div @click="setOpen('panier')" class="relative flex items-center justify-center">
                         <img src="../assets/sack-icon.svg" class="cursor-pointer w-6 md:w-8 2xl:w-10" alt="">
-                        <div v-if="getCount > 0" class="absolute top-0 md:top-[2px] left-4 md:left-[26px] flex items-center justify-center w-2.5 md:w-4 h-2.5 md:h-4 rounded-full bg-white-color">
+                        <div v-if="getCount > 0" class="absolute top-0 md:top-[1px] left-4 md:left-[22px] 2xl:left-[28px] flex items-center justify-center w-2.5 md:w-4 h-2.5 md:h-4 rounded-full bg-white-color">
                             <div class="w-[8px] h-[8px] md:w-[14px] md:h-[14px] rounded-full bg-dark-blue flex items-center justify-center">
-                                <p class="text-white-color text-[5px] md:text-[8px] font-medium md:pr-[1px] pt-[1px]">{{ getCount }}</p>
+                                <p class="text-white-color text-[5px] md:text-[8px] font-medium pt-[1px]">{{ getCount }}</p>
                             </div>
                         </div>
                     </div>

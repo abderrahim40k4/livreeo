@@ -170,7 +170,7 @@ import { useSecondStepStore } from '../../stors/SecondStepStore';
   });
   const getTotalLivre = computed(() => {
     const livre = secondData.cartItems;
-    return livre.reduce((total, product) => total + (product.prix * product.quantity), 0);
+    return livre.reduce((total, product) => total + (product.price * product.quantity), 0);
   });
 
   const getProducts = computed(() => {
@@ -179,7 +179,7 @@ import { useSecondStepStore } from '../../stors/SecondStepStore';
   });
   const getTotalProduct = computed(() => {
     const product = secondData.cartFournt;
-    return product.reduce((total, product) => total + (product.prix * product.quantity), 0);
+    return product.reduce((total, product) => total + (product.price * product.quantity), 0);
   });
 
   
@@ -193,7 +193,7 @@ import { useSecondStepStore } from '../../stors/SecondStepStore';
   });
   const getTotalPrice = computed(() => (categorie) => {
     const products = data.panierProducts.filter(item => item.categorie === categorie);
-    return products.reduce((total, product) => total + (product.prix * product.quantity), 0);
+    return products.reduce((total, product) => total + (product.price * product.quantity), 0);
   });
 
   //Delete button
