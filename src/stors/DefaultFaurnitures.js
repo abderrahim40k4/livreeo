@@ -1,20 +1,21 @@
 import { defineStore } from "pinia";
+import axios from "../lib/axios";
 
 export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
     state: () => ({
         fourniture: [
-            {
-                "id": 1,
+        {
+            "id": 1,
                 "name": "trousse 1",
                 "description": null,
                 "type": "EXTRA",
                 "price": "10.00",
                 "status": 1,
-                "category": "trousse",
+                "category": "trousses",
                 "variants": [
                     {
                         "id": 1,
-                        "color": "#000",
+                        "color": "#3273BA",
                         "image": {
                             "path": "https://livreeo.ma/api/public/files/15"
                         },
@@ -42,11 +43,32 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 "type": "EXTRA",
                 "price": "20.00",
                 "status": 1,
-                "category": "trousse",
+                "category": "trousses",
                 "variants": [
                     {
                         "id": 1,
-                        "color": "#000",
+                        "color": "#3476B9",
+                        "image": {
+                            "path": "https://livreeo.ma/api/public/files/14"
+                        },
+                        "status": 1,
+                        "created_at": null,
+                        "updated_at": null,
+                        "article": {
+                            "id": 7,
+                            "name": "extra 2",
+                            "description": null,
+                            "type": 3,
+                            "price": "20.00",
+                            "status": 1,
+                            "category_id": null,
+                            "created_at": null,
+                            "updated_at": null
+                        }
+                    },
+                    {
+                        "id": 2,
+                        "color": "#6192BF",
                         "image": {
                             "path": "https://livreeo.ma/api/public/files/15"
                         },
@@ -74,7 +96,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 "type": "EXTRA",
                 "price": "20.00",
                 "status": 1,
-                "category": "cartable",
+                "category": "cartables",
                 "variants": [
                     {
                         "id": 1,
@@ -106,7 +128,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 "type": "EXTRA",
                 "price": "20.00",
                 "status": 1,
-                "category": "cartable",
+                "category": "cartables",
                 "variants": [
                     {
                         "id": 1,
@@ -168,6 +190,17 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
         deleteProductsByCategory(category) {
             this.panierProducts = this.panierProducts.filter(item => item.category !== category);
         },
+        // async fetchProducts(path){
+        //     try {
+        //       const data = await axios.get(path)
+        //       this.fourniture = data.data.articles
+        //       //console.log(this.fourniture);
+        //     }
+        //     catch (error) {
+        //       alert(error)
+        //       console.log(error)
+        //     }
+        // },
 
 
     }

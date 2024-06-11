@@ -88,16 +88,16 @@
             <div class="w-full xl:w-[70%] mt-6">  
               <div class="h-[300px] md:h-[450px] overflow-y-auto space-y-4 md:space-y-6">
                 <div class="w-full flex flex-col items-start">
-                  <div v-if="fournitures.length === 0" class="w-full h-[60vh] flex items-center justify-center text-dark-blue text-md font-medium">
+                  <div v-if="products.length === 0" class="w-full h-[60vh] flex items-center justify-center text-dark-blue text-md font-medium">
                     Aucun produit disponible pour le moment !
                   </div>
                   <div 
-                    v-for="product in fournitures"
+                    v-for="product in products"
                     :key="product.id" 
                     class="w-full flex items-center pt-4"
                   >
                     <div class="w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10">
-                      <div @click="selectedProduct = product" class="cursor-pointer">
+                      <div @click="setSelectedProduct(product)" class="cursor-pointer">
                           <div class="w-16 md:w-24">
                             <img :src="product.variants?.[0]?.image?.path" alt="product">
                           </div>
@@ -111,14 +111,14 @@
                       <div class="w-full flex items-center justify-center">
                           <div class="w-1/2 md:w-1/3 flex items-center justify-end">
                               <div class="w-16 md:w-28 h-4 md:h-7 rounded-full text-[9px] md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
-                                  <div @click="decreaseQuantity(product)" class="cursor-pointer">
-                                      -
+                                  <div class="cursor-pointer"><!--@click="decreaseQuantity(product)"-->
+                                    -
                                   </div>
                                   <div>
                                       {{ product.quantity }}
                                   </div>
-                                  <div @click="increaseQuantity(product)" class="cursor-pointer">
-                                      +
+                                  <div class="cursor-pointer"> <!--@click="increaseQuantity(product)"-->
+                                    +
                                   </div>
                               </div>
                           </div>
@@ -147,22 +147,23 @@
                   <h3 class="text-xs md:text-base font-semibold text-dark-blue">TOTAL = {{ totalProducts }} DHS</h3>
                 </div>
                 <div>
-                  <button
+                  <!-- <button
                     @click="addToCart()"
                     class="bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out text-white-color text-xs md:text-base font-semibold rounded-full py-1.5 md:py-3 px-3 md:px-5"
                     :class="{
                       'cursor-default pointer-events-none opacity-50': countProducts() === 0,
                     }">
                     Ajouter au panier ({{ countProducts() }} articles)
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
             <div class="w-full xl:w-[30%] flex items-start justify-start xl:justify-center mt-5 xl:mt-2">
                 <productInfo
+                  :firstProduct="selectedP"
                   :options="selectedProduct"
-                  @colorChange="handleColorChange"
                 />
+                <!--@colorChange="handleColorChange"-->
             </div>
           </div>     
         </div> 
@@ -179,16 +180,17 @@ import { useDefaultFaurnitures } from "../../stors/DefaultFaurnitures"
 
 
 const data = useDefaultFaurnitures();
-
-const props = defineProps({
-  products: Array,
-})
+const route = useRoute();
+const mycategorie = computed(() => route.params.categorie);
+const products = computed(() => data.getProducts.filter(item => item.category === mycategorie.value));
+const selectedP = products.value[0];
 
 const isChecked = ref('')
 const isChecked2 = ref('')
 const isChecked3 = ref('')
 const checkedProducts = ref([])
 const myProduct =  ref([])
+const selectedProduct = ref('');
 
 function handleDivClick(product) {
   const index = myProduct.value.indexOf(product.id);
@@ -202,59 +204,6 @@ function handleDivClick(product) {
 }
 
 
-watch(checkedProducts, () => {
-  console.log(checkedProducts.value);
-});
-
-const route = useRoute();
-const mycategorie = computed(() => route.params.categorie);
-
-//Get fournitures and order them asc or desc
-const fournitures = computed(() => { 
-    const sortedFournitures = getFournituresByCat().slice(); // Make a copy to avoid mutating original data
-
-    if (isChecked.value === 'croissant') {
-      sortedFournitures.sort((a, b) => a.prix - b.prix); // Sort in ascending order
-      //console.log(sortedFournitures);
-    } 
-    else if (isChecked.value === 'decroissant') 
-    {
-      sortedFournitures.sort((a, b) => b.prix - a.prix); // Sort in descending order
-      //console.log(sortedFournitures);
-    }
-
-
-    if(isChecked2.value !== '' || isChecked3.value !== ''){
-      if(isChecked2.value !== '' && isChecked3.value !== '')
-      {
-        return sortedFournitures.reduce((acc, item) => {
-          if (item.type === isChecked2.value && item.color.includes(isChecked3.value)) {
-            acc.push(item);
-          }
-          return acc;
-        }, []);
-      }
-      else if(isChecked2.value !== ''){
-        return sortedFournitures.reduce((acc, item) => {
-          if (item.type === isChecked2.value) {
-            acc.push(item);
-          }
-          return acc;
-        }, []);
-      }
-      else if(isChecked3.value !== ''){
-        return sortedFournitures.reduce((acc, item) => {
-          if (item.color.includes(isChecked3.value)) {
-            acc.push(item);
-          }
-          return acc;
-        }, []);
-      }
-    }
-    return sortedFournitures; 
-});
-
-const selectedProduct = ref(fournitures.value[0]); //props.products[0]
 
 const handleColorChange = (color) => {
   selectedProduct.value.selectedColor = color;
@@ -266,112 +215,10 @@ const handleColorChange = (color) => {
   // }
 }
 
-
-function getFournituresByCat(){
-  return props.products.filter(item => item.category === mycategorie.value);
+function setSelectedProduct(product){
+  selectedProduct.value = product;
 }
 
-//manage quantity
-function decreaseQuantity(item){
-  let index = checkedProducts.value.findIndex(product => product.id === item.id);
-  if(index !== -1 && checkedProducts.value[index].quantity !== 1){
-    checkedProducts.value[index].quantity -= 1;
-  }
-};
-function increaseQuantity(item){
-  let index = checkedProducts.value.findIndex(product => product.id === item.id);
-  if(index !== -1){
-    checkedProducts.value[index].quantity += 1;
-  }
-};
-
-//Button Add to cart
-function addToCart(){
-  checkedProducts.value.forEach(product => {
-    // Check if the product already exists in the cart
-    const index = data.panierProducts.findIndex(item => item.id === product.id);
-    
-    if (index !== -1) {
-      // If the product(color) exists, update its quantity
-      if(product.selectedColor === data.panierProducts[index].selectedColor)
-      {
-        data.panierProducts[index].quantity += product.quantity;
-      }
-      else
-      {
-        data.panierProducts.push({ ...product });
-      }
-    } 
-    else {
-      // If the product doesn't exist, push it to the cart
-      data.panierProducts.push({ ...product });
-    }
-  });
-  // data.panierProducts.push(checkedProducts.value);
-  checkedProducts.value = [];
-  myProduct.value = [];
-}
-
-//Filter (Categories)
-const categories = ref(getUniqueTypes(fournitures.value));
-
-function getUniqueTypes(fourniture) {
-  const uniqueTypesSet = new Set();
-  fourniture.forEach(item => {
-    uniqueTypesSet.add(item.type);
-  });
-  return Array.from(uniqueTypesSet);
-}
-
-//Filter (Color)
-// const color = ref(getUniqueColors(fournitures.value));
-
-// function getUniqueColors(fourniture) {
-//   const uniqueColorsSet = new Set();
-//   fourniture.forEach(item => {
-//     item.color.forEach(color => {
-//       uniqueColorsSet.add(color);
-//     });
-//   });
-//   //console.log(Array.from(uniqueColorsSet));
-//   return Array.from(uniqueColorsSet);
-// }
-
-
-// watch(mycategorie, () => {
-//   isChecked2.value = '';
-//   isChecked3.value = '';
-//   categories.value = getUniqueTypes(fournitures.value);
-//   color.value = getUniqueColors(fournitures.value);
-//   //console.log(categories.value);
-// });
-
-
-//function calcul total
-function calcTotal(){
-  const checkedProductArray = checkedProducts.value;
-
-  // Filter checked products based on the category
-  const filteredProducts = checkedProductArray.filter(item => item.categorie === mycategorie.value);
-
-  let total = filteredProducts.reduce((total, item) => {
-    //data.total = total + (item.prix * item.quantity);
-    return total + (item.price * item.quantity);
-  }, 0);
-  return total;
-}
-
-//Calcul total fournitures
-const totalProducts = computed(() => {
-  return calcTotal();
-});
-
-
-//count product in cart 
-function countProducts(){
-  const products = checkedProducts.value.filter(item => item.category === mycategorie.value);
-  return products.length;
-}
 
 
 </script>
