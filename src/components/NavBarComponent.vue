@@ -79,7 +79,7 @@ const navlinks = [
     {
         id : 2,
         title: 'Accessoires Scolaires',
-        path: '/Fourniture/cartable'
+        path: '/Fourniture/cartables'
     },
     {
         id : 3,

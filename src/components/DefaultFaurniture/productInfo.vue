@@ -21,7 +21,7 @@
             </div>
           </div>
         </div>
-        <!-- <span class="text-sm md:text-lg font-medium pb-2">{{ selectedVariant.value.article.name }}</span> -->
+        <span class="text-sm md:text-lg font-medium pb-2">{{ nameP }}</span>
         <p class="text-[8px] md:text-xs font-light">ISBN : 978-2013953115</p>
         <p class="text-[8px] md:text-xs font-light">Année : 2016</p>
         <p class="text-[8px] md:text-xs font-light">Edition : Hachette</p>
@@ -31,10 +31,11 @@
 </template>
   
   <script setup>
-  import { ref, watch, computed } from 'vue'
+  import { ref, watch, computed, getCurrentInstance } from 'vue'
   import { useDefaultFaurnitures } from "../../stors/DefaultFaurnitures"
 
   const data = useDefaultFaurnitures();
+  const { emit } = getCurrentInstance();
   // Define props
   const props = defineProps({
     firstProduct: Object,
@@ -45,19 +46,14 @@
         return props.firstProduct
     }
     return props.options
-    });
-
-//   const products = computed(() => props.firstProduct);
+  });
   
   // Initialize checkedColor and selectedVariant
-   const checkedColor = ref(product.value.variants[0].color)
-   const selectedVariant = ref(null)
-   const imageUrl = ref(product.value.variants[0].image.path)
-  // Set the default variant to the first one
-//   if (product.value.length > 0) {
-//     selectedVariant.value = product.value.variants[0]
-//     checkedColor.value = selectedVariant.value.color
-//   }
+  const selectedVariant = ref(product.value.variants[0]);
+  const checkedColor = ref(selectedVariant.value.color);
+   
+  const imageUrl = ref(selectedVariant.value.image.path);
+  const nameP = ref(selectedVariant.value.article.name);
   
   // Function to select variant
   const selectVariant = (variant) => {
@@ -66,10 +62,22 @@
   
   watch(checkedColor, (newColor) => {
     const newVariant = product.value.variants.find(variant => variant.color === newColor)
+    //console.log(newVariant);
     if (newVariant) {
       selectedVariant.value = newVariant;
       imageUrl.value = selectedVariant.value.image.path;
+      nameP.value = selectedVariant.value.article.name;
+      emit('colorChange', checkedColor.value);
       //console.log(selectedVariant.value.image.path);
+    }
+  })
+  watch(product, (newP) => {
+    if(newP){
+      selectedVariant.value = product.value.variants[0];
+      checkedColor.value = selectedVariant.value.color;
+      imageUrl.value = selectedVariant.value.image.path;
+      nameP.value = selectedVariant.value.article.name;
+      emit('colorChange', checkedColor.value);
     }
   })
   </script>

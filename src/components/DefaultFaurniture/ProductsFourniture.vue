@@ -111,13 +111,13 @@
                       <div class="w-full flex items-center justify-center">
                           <div class="w-1/2 md:w-1/3 flex items-center justify-end">
                               <div class="w-16 md:w-28 h-4 md:h-7 rounded-full text-[9px] md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
-                                  <div class="cursor-pointer"><!--@click="decreaseQuantity(product)"-->
+                                  <div @click="decreaseQuantity(product)" class="cursor-pointer">
                                     -
                                   </div>
                                   <div>
                                       {{ product.quantity }}
                                   </div>
-                                  <div class="cursor-pointer"> <!--@click="increaseQuantity(product)"-->
+                                  <div @click="increaseQuantity(product)" class="cursor-pointer">  
                                     +
                                   </div>
                               </div>
@@ -147,14 +147,14 @@
                   <h3 class="text-xs md:text-base font-semibold text-dark-blue">TOTAL = {{ totalProducts }} DHS</h3>
                 </div>
                 <div>
-                  <!-- <button
+                  <button
                     @click="addToCart()"
                     class="bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out text-white-color text-xs md:text-base font-semibold rounded-full py-1.5 md:py-3 px-3 md:px-5"
                     :class="{
                       'cursor-default pointer-events-none opacity-50': countProducts() === 0,
                     }">
                     Ajouter au panier ({{ countProducts() }} articles)
-                  </button> -->
+                  </button>
                 </div>
               </div>
             </div>
@@ -162,8 +162,8 @@
                 <productInfo
                   :firstProduct="selectedP"
                   :options="selectedProduct"
+                  @colorChange="handleColorChange"
                 />
-                <!--@colorChange="handleColorChange"-->
             </div>
           </div>     
         </div> 
@@ -203,21 +203,81 @@ function handleDivClick(product) {
   document.getElementById(product.id).click();
 }
 
+//Button Add to cart
+function addToCart(){
+  checkedProducts.value.forEach(product => {
+    // Check if the product already exists in the cart
+    const index = data.panierProducts.findIndex(item => item.id === product.id);
+    
+    if (index !== -1) {
+      // If the product(color) exists, update its quantity
+      if(product.selectedColor === data.panierProducts[index].selectedColor)
+      {
+        data.panierProducts[index].quantity += product.quantity;
+      }
+      else
+      {
+        data.panierProducts.push({ ...product });
+      }
+    } 
+    else {
+      // If the product doesn't exist, push it to the cart
+      data.panierProducts.push({ ...product });
+    }
+  });
+  // data.panierProducts.push(checkedProducts.value);
+  checkedProducts.value = [];
+  myProduct.value = [];
+}
+
+//count product in cart 
+function countProducts(){
+  const products = checkedProducts.value.filter(item => item.category === mycategorie.value);
+  return products.length;
+}
 
 
 const handleColorChange = (color) => {
   selectedProduct.value.selectedColor = color;
-  //Find the corresponding product in checkedProducts and update its selectedColor
-  // const productId = selectedProduct.value.id;
-  // const productIndex = checkedProducts.value.findIndex(product => product.id === productId);
-  // if (productIndex !== -1) {
-  //   checkedProducts.value[productIndex].selectedColor = color;
-  // }
 }
+
+//function calcul total
+function calcTotal(){
+  const checkedProductArray = checkedProducts.value;
+
+  // Filter checked products based on the category
+  const filteredProducts = checkedProductArray.filter(item => item.category === mycategorie.value);
+
+  let total = filteredProducts.reduce((total, item) => {
+    //data.total = total + (item.prix * item.quantity);
+    return total + (item.price * item.quantity);
+  }, 0);
+  return total;
+}
+
+//Calcul total fournitures
+const totalProducts = computed(() => {
+  return calcTotal();
+});
+
 
 function setSelectedProduct(product){
   selectedProduct.value = product;
 }
+
+//manage quantity
+function decreaseQuantity(item){
+  let index = checkedProducts.value.findIndex(product => product.id === item.id);
+  if(index !== -1 && checkedProducts.value[index].quantity !== 1){
+    checkedProducts.value[index].quantity -= 1;
+  }
+};
+function increaseQuantity(item){
+  let index = checkedProducts.value.findIndex(product => product.id === item.id);
+  if(index !== -1){
+    checkedProducts.value[index].quantity += 1;
+  }
+};
 
 
 
