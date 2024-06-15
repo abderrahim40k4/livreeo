@@ -8,7 +8,7 @@
           <div class="xl:w-4/5">
             <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-x-8 sm:gap-x-16 lg:gap-x-0 gap-y-6 lg:gap-y-0 space-x-0 lg:space-x-14 xl:space-x-0">
               <!--meilleurs ventes-->
-              <!-- <div class="flex flex-col">
+              <div class="flex flex-col">
                 <h3 class="text-base lg:text-lg font-medium pb-1">Meilleurs ventes</h3>
                 <div class="flex items-center">
                   <input type="radio" name="checkbox" id="checkbox1" class="hidden" v-model="isChecked" value="croissant">
@@ -37,7 +37,7 @@
                   </label>
                   <p class="pl-3 text-xs lg:text-sm font-medium">Note des clients</p>
                 </div>
-              </div> -->
+              </div>
               
               <!--Categories-->
               <!-- <div class="flex flex-col">
@@ -55,7 +55,7 @@
                 </div>
               </div> -->
               <!--couleurs-->
-              <!-- <div class="flex flex-col">
+              <div class="flex flex-col">
                 <h3 class="text-base lg:text-lg font-medium pb-1">Couleurs</h3>
                 <div class="w-fit grid grid-cols-5 gap-y-1 gap-x-1 lg:gap-x-2">
                   <div v-for="item in color" class="flex items-center">
@@ -74,7 +74,7 @@
                     </div>
                   </div>
                 </div>
-              </div> -->
+              </div>
               <!--prix-->
               <div class="flex flex-col">
                 <h3 class="text-base lg:text-lg font-medium pb-1">Prix</h3>
@@ -182,15 +182,46 @@ import { useDefaultFaurnitures } from "../../stors/DefaultFaurnitures"
 const data = useDefaultFaurnitures();
 const route = useRoute();
 const mycategorie = computed(() => route.params.categorie);
-const products = computed(() => data.getProducts.filter(item => item.category === mycategorie.value));
+const isChecked = ref('');
+const isChecked3 = ref('')
+
+const products = computed(() => {
+  let filteredProducts = data.getProducts.filter(item => item.category === mycategorie.value);
+
+  if (isChecked3.value !== '') {
+      filteredProducts = filteredProducts.reduce((acc, item) => {
+          const matchingVariants = item.variants.filter(variant => variant.color === isChecked3.value);
+          if (matchingVariants.length > 0) {
+              acc.push(item);
+          }
+          return acc;
+      }, []);
+  }
+
+  if (isChecked.value === 'croissant') {
+      filteredProducts.sort((a, b) => a.price - b.price);
+  } else if (isChecked.value === 'decroissant') {
+      filteredProducts.sort((a, b) => b.price - a.price);
+  }
+  
+  return filteredProducts;
+});
 const selectedP = products.value[0];
 
-const isChecked = ref('')
+
 const isChecked2 = ref('')
-const isChecked3 = ref('')
+
 const checkedProducts = ref([])
 const myProduct =  ref([])
 const selectedProduct = ref('');
+
+// watch(isChecked.value, (newValue) => {
+//   if(newValue === 'croissant'){
+//     products.value = products.value.sort((a, b) => a.price - b.price);
+//   }else if(newValue === 'decroissant'){
+//     products.value = products.value.sort((a, b) => b.price - a.price);
+//   }
+// })
 
 function handleDivClick(product) {
   const index = myProduct.value.indexOf(product.id);
@@ -279,6 +310,8 @@ function increaseQuantity(item){
   }
 };
 
+//Filter (Color)
+const color = ["#004079","#00B8D0", "#F35757", "#51E04E", "#AD19E1", "#000", "#D9D9D9", "#13A760", "#F9EF09", "#EC0F79"];
 
 
 </script>

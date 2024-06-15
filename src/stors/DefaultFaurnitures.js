@@ -15,7 +15,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 "variants": [
                     {
                         "id": 1,
-                        "color": "#3273BA",
+                        "color": "#AD19E1",
                         "image": {
                             "path": "https://livreeo.ma/api/public/files/15"
                         },
@@ -47,7 +47,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 "variants": [
                     {
                         "id": 1,
-                        "color": "#3476B9",
+                        "color": "#AD19E1",
                         "image": {
                             "path": "https://livreeo.ma/api/public/files/14"
                         },
@@ -68,7 +68,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                     },
                     {
                         "id": 2,
-                        "color": "#6192BF",
+                        "color": "#51E04E",
                         "image": {
                             "path": "https://livreeo.ma/api/public/files/15"
                         },
@@ -109,7 +109,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                         "updated_at": null,
                         "article": {
                             "id": 7,
-                            "name": "extra 2",
+                            "name": "Cartable 1",
                             "description": null,
                             "type": 3,
                             "price": "20.00",
@@ -126,7 +126,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 "name": "Cartable 2",
                 "description": null,
                 "type": "EXTRA",
-                "price": "20.00",
+                "price": "40.00",
                 "status": 1,
                 "category": "cartables",
                 "variants": [
@@ -141,7 +141,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                         "updated_at": null,
                         "article": {
                             "id": 7,
-                            "name": "extra 2",
+                            "name": "Cartable 2",
                             "description": null,
                             "type": 3,
                             "price": "20.00",
@@ -162,7 +162,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                         "updated_at": null,
                         "article": {
                             "id": 7,
-                            "name": "extra 2",
+                            "name": "Cartable ",
                             "description": null,
                             "type": 3,
                             "price": "20.00",
