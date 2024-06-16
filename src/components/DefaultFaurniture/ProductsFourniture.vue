@@ -40,9 +40,9 @@
               </div>
               
               <!--Categories-->
-              <!-- <div class="flex flex-col">
+              <div class="flex flex-col">
                 <h3 class="text-base lg:text-lg font-medium pb-1">Categories</h3>
-                <div v-for="item in categories">
+                <!-- <div v-for="item in categories">
                   <div class="flex items-center">
                     <input type="radio" name="checkbox-cat" :id="item" class="hidden" v-model="isChecked2" :value="item">
                     <label class="relative cursor-pointer" :for="item">
@@ -52,13 +52,13 @@
                     </label>
                     <p class="pl-3 text-xs lg:text-sm font-medium">{{ item }}</p>
                   </div>
-                </div>
-              </div> -->
+                </div> -->
+              </div>
               <!--couleurs-->
               <div class="flex flex-col">
                 <h3 class="text-base lg:text-lg font-medium pb-1">Couleurs</h3>
-                <div class="w-fit grid grid-cols-5 gap-y-1 gap-x-1 lg:gap-x-2">
-                  <div v-for="item in color" class="flex items-center">
+                <div class="w-fit grid grid-cols-5 gap-y-1 gap-x-1">
+                  <div v-for="item in color" class="flex items-center justify-center">
                     <div class="flex items-center justify-start">
                       <input type="radio" name="checkbox-col" :id="item" class="hidden" v-model="isChecked3" :value="item">
                       <label class="relative cursor-pointer" :for="item">
@@ -96,7 +96,7 @@
                     :key="product.id" 
                     class="w-full flex items-center pt-4"
                   >
-                    <div class="w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10">
+                    <div class="w-1/2 flex items-center space-x-2 md:space-x-6 md:pl-4 lg:pl-20">
                       <div @click="setSelectedProduct(product)" class="cursor-pointer">
                           <div class="w-16 md:w-24">
                             <img :src="product.variants?.[0]?.image?.path" alt="product">

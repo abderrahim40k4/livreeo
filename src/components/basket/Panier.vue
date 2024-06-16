@@ -59,25 +59,25 @@
                     </div>
 
                     <!--calculatrice-->
-                    <div v-if="getFournitures('calculatrice')" class="w-full flex items-center justify-between">
+                    <div v-if="getFournitures('calculatrices')" class="w-full flex items-center justify-between">
                         <div>
-                            <img src="../../assets/defaultCalc.svg" class="w-14" alt="livre">
+                            <img src="../../assets/defaultCalc.svg" class="w-10 md:w-12" alt="livre">
                         </div>
                         <div class="flex flex-col text-dark-blue space-y-1">
                             <div>
                                 <p class="text-[10px] md:text-xs font-semibold">Calculatrice</p>
                             </div>
-                            <router-link to="/Fourniture/calculatrice">
+                            <router-link to="/Fourniture/calculatrices">
                                 <div class="border-[0.5px] border-[#6192BF] w-14 md:w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
                                     <div class="w-full flex items-center justify-between px-1">
-                                        <p class="text-[7px] font-medium pt-0.5">{{getCountFourn('calculatrice')}} Produit</p>
+                                        <p class="text-[7px] font-medium pt-0.5">{{getCountFourn('calculatrices')}} Produit</p>
                                         <img src="../../assets/drop-icon.svg" alt="">
                                     </div>
                                 </div>
                             </router-link>
                         </div>
                         <div>
-                            <button @click="deleteProducts('calculatrice')" class="uppercase text-dark-blue text-[8px] md:text-[10px] pt-6 pl-3">supprimer</button>
+                            <button @click="deleteProducts('calculatrices')" class="uppercase text-dark-blue text-[8px] md:text-[10px] pt-6 pl-3">supprimer</button>
                         </div>
                         <div>
                             <p class="text-xs md:text-[13px] font-bold text-dark-blue pt-5">{{ getTotalPrice('calculatrice') }},00 <span class="font-medium">MAD</span></p>
@@ -86,55 +86,55 @@
                     </div>
 
                     <!--cartable-->
-                    <div v-if="getFournitures('cartable')" class="w-full flex items-center justify-between">
+                    <div v-if="getFournitures('cartables')" class="w-full flex items-center justify-between">
                         <div>
-                            <img src="../../assets/cartable-panier.svg" class="w-14" alt="livre">
+                            <img src="../../assets/cartable-panier.svg" class="w-10 md:w-12" alt="livre">
                         </div>
                         <div class="flex flex-col text-dark-blue space-y-1">
                             <div>
                                 <p class="text-[10px] md:text-xs font-semibold">Cartable</p>
                             </div>
-                            <router-link to="/Fourniture/cartable">
+                            <router-link to="/Fourniture/cartables">
                                 <div class="border-[0.5px] border-[#6192BF] w-14 md:w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
                                     <div class="w-full flex items-center justify-between px-1">
-                                        <p class="text-[7px] font-medium pt-0.5">{{ getCountFourn('cartable') }} Produit</p>
+                                        <p class="text-[7px] font-medium pt-0.5">{{ getCountFourn('cartables') }} Produit</p>
                                         <img src="../../assets/drop-icon.svg" alt="">
                                     </div>
                                 </div>
                             </router-link>
                         </div>
                         <div>
-                            <button @click="deleteProducts('cartable')" class="uppercase text-dark-blue text-[8px] md:text-[10px] pt-6 pl-3">supprimer</button>
+                            <button @click="deleteProducts('cartables')" class="uppercase text-dark-blue text-[8px] md:text-[10px] pt-6 pl-3">supprimer</button>
                         </div>
                         <div>
-                            <p class="text-xs md:text-[13px] font-bold text-dark-blue pt-5">{{ getTotalPrice('cartable') }},00 <span class="font-medium">MAD</span></p>
+                            <p class="text-xs md:text-[13px] font-bold text-dark-blue pt-5">{{ getTotalPrice('cartables') }},00 <span class="font-medium">MAD</span></p>
                         </div>
 
                     </div>
 
                     <!--trousse-->
-                    <div v-if="getFournitures('trousse')" class="w-full flex items-center justify-between">
+                    <div v-if="getFournitures('trousses')" class="w-full flex items-center justify-between">
                         <div>
-                            <img src="../../assets/trousse2.png" class="w-14" alt="livre">
+                            <img src="../../assets/trousse2.png" class="w-10 md:w-12" alt="livre">
                         </div>
                         <div class="flex flex-col text-dark-blue space-y-1">
                             <div>
                                 <p class="text-[10px] md:text-xs font-semibold">Trousse</p>
                             </div>
-                            <router-link to="/Fourniture/trousse">
+                            <router-link to="/Fourniture/trousses">
                                 <div class="border-[0.5px] border-[#6192BF] w-14 md:w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
                                     <div class="w-full flex items-center justify-between px-1">
-                                        <p class="text-[7px] font-medium pt-0.5">{{ getCountFourn('trousse') }}  Produit</p>
+                                        <p class="text-[7px] font-medium pt-0.5">{{ getCountFourn('trousses') }}  Produit</p>
                                         <img src="../../assets/drop-icon.svg" alt="">
                                     </div>
                                 </div>
                             </router-link>    
                         </div>
                         <div>
-                            <button @click="deleteProducts('trousse')" class="uppercase text-dark-blue text-[8px] md:text-[10px] pt-6 pl-3">supprimer</button>
+                            <button @click="deleteProducts('trousses')" class="uppercase text-dark-blue text-[8px] md:text-[10px] pt-6 pl-3">supprimer</button>
                         </div>
                         <div>
-                            <p class="text-xs md:text-[13px] font-bold text-dark-blue pt-5">{{ getTotalPrice('trousse') }},00 <span class="font-medium">MAD</span></p>
+                            <p class="text-xs md:text-[13px] font-bold text-dark-blue pt-5">{{ getTotalPrice('trousses') }},00 <span class="font-medium">MAD</span></p>
                         </div>
 
                     </div>
@@ -184,15 +184,15 @@ import { useSecondStepStore } from '../../stors/SecondStepStore';
 
   
   const getFournitures = computed(() => (categorie) => {
-    const products = data.panierProducts.filter(item => item.categorie === categorie);
+    const products = data.panierProducts.filter(item => item.category === categorie);
     return products.length;
   });
   const getCountFourn = computed(() => (categorie) => {
-    const products = data.panierProducts.filter(item => item.categorie === categorie);
+    const products = data.panierProducts.filter(item => item.category === categorie);
     return products.reduce((count, product) => count + (1 * product.quantity), 0);
   });
   const getTotalPrice = computed(() => (categorie) => {
-    const products = data.panierProducts.filter(item => item.categorie === categorie);
+    const products = data.panierProducts.filter(item => item.category === categorie);
     return products.reduce((total, product) => total + (product.price * product.quantity), 0);
   });
 
