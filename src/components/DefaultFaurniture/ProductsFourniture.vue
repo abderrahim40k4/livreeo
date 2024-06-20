@@ -57,7 +57,7 @@
               <!--couleurs-->
               <div class="flex flex-col">
                 <h3 class="text-base lg:text-lg font-medium pb-1">Couleurs</h3>
-                <div class="w-fit grid grid-cols-5 gap-y-1 gap-x-1">
+                <div class="w-fit grid grid-cols-5 gap-y-1 gap-x-2">
                   <div v-for="item in color" class="flex items-center justify-center">
                     <div class="flex items-center justify-start">
                       <input type="radio" name="checkbox-col" :id="item" class="hidden" v-model="isChecked3" :value="item">
@@ -77,7 +77,14 @@
               </div>
               <!--prix-->
               <div class="flex flex-col">
-                <h3 class="text-base lg:text-lg font-medium pb-1">Prix</h3>
+                <h3 class="text-base lg:text-lg font-medium pb-4">Prix</h3>
+                <div class="w-3/4 h-[6px] rounded-md bg-[#CDCDCD] relative">
+                  <div class="h-[6px] left-1/4 right-1/4 absolute rounded-md bg-dark-blue"></div>
+                </div>
+                <div class="flex relative">
+                  <input type="range" class="range-min absolute -top-[6px] h-[6px] w-full pointer-events-none" min="0" max="10000" value="2500">
+                  <input type="range" class="range-max absolute -top-[6px] h-[6px] w-full pointer-events-none" min="0" max="10000" value="7500">
+                </div>
               </div>
             </div>
           </div>
@@ -314,6 +321,9 @@ function increaseQuantity(item){
 const color = ["#004079","#00B8D0", "#F35757", "#51E04E", "#AD19E1", "#000", "#D9D9D9", "#13A760", "#F9EF09", "#EC0F79"];
 
 
+//Filter (price)
+
+
 </script>
 
 <style scoped>
@@ -331,6 +341,34 @@ const color = ["#004079","#00B8D0", "#F35757", "#51E04E", "#AD19E1", "#000", "#D
 ::-webkit-scrollbar-thumb {
   background: #6192bf;
   border-radius: 5px;
+}
+
+.range-min{
+  background: none;
+  width: 75%;
+  -webkit-appearance: none;
+}
+.range-max{
+  background: none; 
+  width: 75%;
+  -webkit-appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  background: #004079;
+}
+input[type="range"]::-moz-range-thumb{
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 50%;
+  pointer-events: auto;
+  -moz-appearance: none;
+  background: #004079;
 }
 
 </style>
