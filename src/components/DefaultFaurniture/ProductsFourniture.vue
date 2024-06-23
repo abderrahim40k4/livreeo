@@ -8,7 +8,7 @@
           <div class="xl:w-4/5">
             <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-x-8 sm:gap-x-16 lg:gap-x-0 gap-y-6 lg:gap-y-0 space-x-0 lg:space-x-14 xl:space-x-0">
               <!--meilleurs ventes-->
-              <div class="flex flex-col">
+              <div class="flex flex-col"> 
                 <h3 class="text-base lg:text-lg font-medium pb-1">Meilleurs ventes</h3>
                 <div class="flex items-center">
                   <input type="radio" name="checkbox" id="checkbox1" class="hidden" v-model="isChecked" value="croissant">
@@ -78,12 +78,20 @@
               <!--prix-->
               <div class="flex flex-col">
                 <h3 class="text-base lg:text-lg font-medium pb-4">Prix</h3>
-                <div class="w-3/4 h-[6px] rounded-md bg-[#CDCDCD] relative">
-                  <div class="h-[6px] left-1/4 right-1/4 absolute rounded-md bg-dark-blue"></div>
+                <div class="slider w-3/4 h-[6px] rounded-md bg-[#CDCDCD] relative">
+                  <div class="progress h-[6px] left-1/4 right-1/4 absolute rounded-md bg-dark-blue"></div>
                 </div>
-                <div class="flex relative">
+                <div class="range-input flex relative">
                   <input type="range" class="range-min absolute -top-[6px] h-[6px] w-full pointer-events-none" min="0" max="10000" value="2500">
                   <input type="range" class="range-max absolute -top-[6px] h-[6px] w-full pointer-events-none" min="0" max="10000" value="7500">
+                </div>
+                <div class="flex items-center justify-between pt-3">
+                  <div>
+                    <p class="text-xs lg:text-sm font-medium pr-10">100 Dhs</p>
+                  </div>
+                  <div>
+                    <p class="text-xs lg:text-sm font-medium pr-8">500 Dhs</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -180,7 +188,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, onMounted } from 'vue'
 import productInfo from './productInfo.vue'
 import { useRoute } from "vue-router"
 import { useDefaultFaurnitures } from "../../stors/DefaultFaurnitures"
@@ -322,6 +330,47 @@ const color = ["#004079","#00B8D0", "#F35757", "#51E04E", "#AD19E1", "#000", "#D
 
 
 //Filter (price)
+onMounted(() => {
+  const rangeInputs = document.querySelectorAll('.range-input input');
+  const progress = document.querySelector('.slider .progress');
+  const priceGap = 1000;
+
+  rangeInputs.forEach(input => {
+    input.addEventListener('input', (e) => {
+      let minVal = parseInt(rangeInputs[0].value);
+      let maxVal = parseInt(rangeInputs[1].value);
+
+      if (maxVal - minVal < priceGap) {
+        if (e.target.classList.contains('range-min')) {
+          rangeInputs[0].value = maxVal - priceGap;
+        } else {
+          rangeInputs[1].value = minVal + priceGap;
+        }
+        minVal = parseInt(rangeInputs[0].value);
+        maxVal = parseInt(rangeInputs[1].value);
+      }
+
+      const minPercent = (minVal / rangeInputs[0].max) * 100;
+      const maxPercent = (maxVal / rangeInputs[1].max) * 100;
+
+      progress.style.left = minPercent + '%';
+      progress.style.right = (100 - maxPercent) + '%';
+    });
+  });
+
+  // Initialize the progress bar on mount
+  const initProgress = () => {
+    const minVal = parseInt(rangeInputs[0].value);
+    const maxVal = parseInt(rangeInputs[1].value);
+    const minPercent = (minVal / rangeInputs[0].max) * 100;
+    const maxPercent = (maxVal / rangeInputs[1].max) * 100;
+    
+    progress.style.left = minPercent + '%';
+    progress.style.right = (100 - maxPercent) + '%';
+  };
+
+  initProgress();
+});
 
 
 </script>
