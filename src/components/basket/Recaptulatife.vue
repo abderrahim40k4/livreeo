@@ -6,7 +6,7 @@
                 <p class="text-sm font-light">Sous-total</p>
             </div>
             <div>
-                <p class="text-sm font-semibold">{{ data.totalPanier + secondData.calcTotalPanier }},00 MAD</p>
+                <p class="text-sm font-semibold">{{ (data.totalPanier + secondData.calcTotalPanier) * (1 - lastdata.reduction) }},00 MAD</p>
             </div>
         </div>
         <div class="flex items-center justify-between pb-3">
@@ -24,7 +24,7 @@
                 
             </div>
             <div>
-                <p class="text-sm font-bold">{{ data.totalPanier + secondData.calcTotalPanier }},00 MAD</p>
+                <p class="text-sm font-bold">{{ (data.totalPanier + secondData.calcTotalPanier) * (1 - lastdata.reduction)  }},00 MAD</p>
             </div>
         </div>
         <div class="w-full flex flex-col items-center justify-center pt-6">
@@ -40,8 +40,10 @@
 <script setup>
 import { useDefaultFaurnitures } from '../../stors/DefaultFaurnitures';
 import { useSecondStepStore } from '../../stors/SecondStepStore';
+import { useLastStepStore } from '../../stors/endpoint';
   
   //Default faurnitures panier
   const data = useDefaultFaurnitures();
   const secondData = useSecondStepStore();
+  const lastdata = useLastStepStore();
 </script>

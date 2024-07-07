@@ -39,7 +39,7 @@
   <SiteMapComponent />
 </template>
 <script setup>
-import { computed } from "vue"
+import { computed, onMounted } from "vue"
 import smallCardFournt from "../components/DefaultFaurniture/smallCardFournt.vue"
 import ProductsFourniture from "../components/DefaultFaurniture/ProductsFourniture.vue"
 import SiteMapComponent from "../components/SiteMapComponent.vue"
@@ -50,7 +50,9 @@ import trouse from '../assets/trouse.svg';
 import calculatrice from '../assets/calculatrice.svg';
 
 const data = useDefaultFaurnitures();
-//data.fetchProducts("/articles?types=EXTRA");
+onMounted(() => {
+  data.fetchProducts("/articles?types=EXTRA");
+});
 // const products = computed(() => data.getProducts);
 
 const cartCartable = computed(() => {

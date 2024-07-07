@@ -42,7 +42,7 @@
               <!--Categories-->
               <div class="flex flex-col">
                 <h3 class="text-base lg:text-lg font-medium pb-1">Categories</h3>
-                <!-- <div v-for="item in categories">
+                <div v-for="item in categories">
                   <div class="flex items-center">
                     <input type="radio" name="checkbox-cat" :id="item" class="hidden" v-model="isChecked2" :value="item">
                     <label class="relative cursor-pointer" :for="item">
@@ -52,7 +52,7 @@
                     </label>
                     <p class="pl-3 text-xs lg:text-sm font-medium">{{ item }}</p>
                   </div>
-                </div> -->
+                </div>
               </div>
               <!--couleurs-->
               <div class="flex flex-col">
@@ -82,15 +82,15 @@
                   <div class="progress h-[6px] left-1/4 right-1/4 absolute rounded-md bg-dark-blue"></div>
                 </div>
                 <div class="range-input flex relative">
-                  <input type="range" class="range-min absolute -top-[6px] h-[6px] w-full pointer-events-none" min="0" max="10000" value="2500">
-                  <input type="range" class="range-max absolute -top-[6px] h-[6px] w-full pointer-events-none" min="0" max="10000" value="7500">
+                  <input type="range" class="range-min absolute -top-[6px] h-[6px] w-full pointer-events-none" v-model="minPrice" min="0" max="1000" value="0" step="50">
+                  <input type="range" class="range-max absolute -top-[6px] h-[6px] w-full pointer-events-none" v-model="maxPrice" min="0" max="1000" value="500" step="50">
                 </div>
                 <div class="flex items-center justify-between pt-3">
                   <div>
-                    <p class="text-xs lg:text-sm font-medium pr-10">100 Dhs</p>
+                    <p class="text-xs lg:text-sm font-medium pr-10">{{ minPrice }} Dhs</p>
                   </div>
                   <div>
-                    <p class="text-xs lg:text-sm font-medium pr-8">500 Dhs</p>
+                    <p class="text-xs lg:text-sm font-medium pr-8">{{ maxPrice }} Dhs</p>
                   </div>
                 </div>
               </div>
@@ -175,6 +175,7 @@
             </div>
             <div class="w-full xl:w-[30%] flex items-start justify-start xl:justify-center mt-5 xl:mt-2">
                 <productInfo
+                  v-if="data.fourniture.length > 0"
                   :firstProduct="selectedP"
                   :options="selectedProduct"
                   @colorChange="handleColorChange"
@@ -188,6 +189,7 @@
 </template>
 
 <script setup>
+import axios from "../../lib/axios";
 import { computed, ref, watch, onMounted } from 'vue'
 import productInfo from './productInfo.vue'
 import { useRoute } from "vue-router"
@@ -221,7 +223,7 @@ const products = computed(() => {
   
   return filteredProducts;
 });
-const selectedP = products.value[0];
+const selectedP = computed(() => products.value[0]);
 
 
 const isChecked2 = ref('')
@@ -329,11 +331,25 @@ function increaseQuantity(item){
 const color = ["#004079","#00B8D0", "#F35757", "#51E04E", "#AD19E1", "#000", "#D9D9D9", "#13A760", "#F9EF09", "#EC0F79"];
 
 
+//Filter (Categories)
+const categories = ref(['Cartables', 'Trolleys', 'Sac a dos']);
+
+// function getUniqueTypes(fourniture) {
+//   const uniqueTypesSet = new Set();
+//   fourniture.forEach(item => {
+//     uniqueTypesSet.add(item.category);
+//   });
+//   return Array.from(uniqueTypesSet);
+// }
+
 //Filter (price)
+const minPrice = ref(0)
+const maxPrice = ref(500)
 onMounted(() => {
   const rangeInputs = document.querySelectorAll('.range-input input');
   const progress = document.querySelector('.slider .progress');
-  const priceGap = 1000;
+  const priceInput = document.querySelectorAll('.price-input input');
+  const priceGap = 100;
 
   rangeInputs.forEach(input => {
     input.addEventListener('input', (e) => {
@@ -353,6 +369,8 @@ onMounted(() => {
       const minPercent = (minVal / rangeInputs[0].max) * 100;
       const maxPercent = (maxVal / rangeInputs[1].max) * 100;
 
+      minPrice.value =  minVal;
+      maxPrice.value = maxVal;
       progress.style.left = minPercent + '%';
       progress.style.right = (100 - maxPercent) + '%';
     });
@@ -370,6 +388,12 @@ onMounted(() => {
   };
 
   initProgress();
+});
+
+// Watch for changes in minPrice and maxPrice to filter products
+watch([minPrice, maxPrice], ([newMin, newMax]) => {
+  //console.log(newMin + '/' + newMax);
+  data.fetchProductsByPrice(newMin, newMax);
 });
 
 
@@ -403,9 +427,10 @@ onMounted(() => {
   -webkit-appearance: none;
 }
 input[type="range"]::-webkit-slider-thumb{
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
+  cursor: pointer;
   pointer-events: auto;
   -webkit-appearance: none;
   background: #004079;

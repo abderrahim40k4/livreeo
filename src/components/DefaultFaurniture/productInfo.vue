@@ -1,11 +1,11 @@
 <template>
-    <div v-if="product" class="flex flex-row xl:flex-col items-start px-2 md:px-8 xl:px-12 space-x-2 md:space-x-0">
+    <div class="flex flex-row xl:flex-col items-start px-2 md:px-8 xl:px-12 space-x-2 md:space-x-0">
       <div class="w-1/3 xl:w-full flex items-center justify-center xl:pt-4 xl:pb-2">
         <img :src="imageUrl" class="h-28 md:h-40 xl:h-64" alt="product">
       </div>
       <div class="w-2/3 xl:w-full flex flex-col text-[#5A7BA0] items-start">
         <div class="grid grid-cols-5 gap-x-1 xl:gap-x-2 gap-y-1 pb-1.5 xl:pb-2">
-          <div v-for="variant in product.variants" :key="variant.id" class="flex items-center">
+          <div v-if="product" v-for="variant in product.variants" :key="variant.id" class="flex items-center">
             <div class="flex items-center justify-center">
               <input type="radio" name="checkbox-col" :id="variant.color + 'prinfo'" class="hidden" v-model="checkedColor" :value="variant.color">
               <label class="relative cursor-pointer" :for="variant.color + 'prinfo'" @click="selectVariant(variant)">
@@ -42,18 +42,24 @@
     options: Object,
   })
   const product = computed(() => {
-    if(!props.options){
-        return props.firstProduct
+    if(props.options === ''){
+      return props.firstProduct
     }
     return props.options
   });
-  
+  console.log(product);
   // Initialize checkedColor and selectedVariant
   const selectedVariant = ref(product.value.variants[0]);
   const checkedColor = ref(selectedVariant.value.color);
-   
   const imageUrl = ref(selectedVariant.value.image.path);
   const nameP = ref(selectedVariant.value.article.name);
+  watch(product, (newProduct) => {
+    selectedVariant.value = product.value.variants[0]
+    checkedColor.value = selectedVariant.value.color
+    imageUrl.value = selectedVariant.value.image.path;
+    nameP.value = selectedVariant.value.article.name;
+  })
+  
   
   // Function to select variant
   const selectVariant = (variant) => {

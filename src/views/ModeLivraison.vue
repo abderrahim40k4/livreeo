@@ -17,7 +17,14 @@
                         <router-link to="/bascket"><img src="../assets/back-arraw.svg" class="h-10 md:h-12 cursor-pointer" alt="back"></router-link>
                     </div>
                     <div>
-                        <router-link to="/adresse-de-livraison"><button class="bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out text-white-color rounded-full text-sm md:text-base font-semibold px-4 md:px-6 py-2 md:py-3">Aller au paiement</button></router-link>
+                        <router-link to="/adresse-de-livraison">
+                            <button
+                            :class="selectedT === '' ? 'cursor-default pointer-events-none opacity-50' : ''" 
+                            class="bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out text-white-color rounded-full text-sm md:text-base font-semibold px-4 md:px-6 py-2 md:py-3"
+                            >
+                                Aller au paiement
+                            </button>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -26,13 +33,14 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useFormStore } from '../stors/FormStore';
 import SelectShipping from '../components/SelectShipping.vue';
 
 const data = useFormStore();
 data.fetchShipping();
 const shippingTypes = computed(() => data.shipping.shipping_types);
+const selectedT = ref('')
 
 </script>
 

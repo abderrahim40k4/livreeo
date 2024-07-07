@@ -1,48 +1,34 @@
 import { defineStore } from "pinia";
-import { useFirstStepStore } from './FirstStepStore'
+import { useSecondStepStore } from './SecondStepStore'; 
+import { useDefaultFaurnitures } from './DefaultFaurnitures';
 
-import { useSecondStepStore } from './SecondStepStore'
+import axios from "../lib/axios";
 
-// const mystore = useFirstStepStore();
-// const secstore = useSecondStepStore();
-
-export const useEndPoint = defineStore("endPoint", {
+export const useLastStepStore = defineStore("lastStepStore", {
     state: () => ({
-        
-        
-            type_pack:'',
-            // id_ville: mystore.SelectedCity,
-            // id_ecole:mystore.SelectedSchool,
-            // id_classe:mystore.SelectedClass,
-            // id_langues:mystore.SelectedLangues,
-            livres:[],
-            fournitures:[],
-            taux_plastification:false,
-            type_livraison:null,
-            formulaire:{
-                addres:"",
-                ville:"",
-                infocomlimontaire:"",
-                nom:"",
-                numberPhone:0,
-                email:"",
-            },
-            type_paiement:{
-                type:"",
-                nom:"",
-                numero_carte:"",
-                date_expiration:"",
-                code_securite:"",
-            }
-
+        reduction: 0,
+        promoCode: '',
+        shippingType: '',
     }),
     getters:{
-        getProducts(state){
-            return state.params;
-        }
-
+        // calcTotal(state){
+        //     const data = useDefaultFaurnitures();
+        //     const secData = useSecondStepStore();
+        //     state.total = data.total + secData.total;
+        //     return state.total;
+        // }
     },
     actions:{
-        
+        async fetchPromoCode(code){
+            try {
+              const data = await axios.post('/promo-codes/verify', { code });
+              this.reduction = data.data.code.reduction_rate
+              this.promoCode = data.data.code.code
+              //console.log(this.reduction);
+            }
+            catch (error) {
+              console.log(error)
+            }
+        },
     }
 });
