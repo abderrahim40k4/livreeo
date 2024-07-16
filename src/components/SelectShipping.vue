@@ -4,7 +4,7 @@
         <div v-for="item in props.shippingTypes" :key="item" class="space-y-4">  
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
-                    <input type="radio" name="livraison" id="livraison" class="w-9 h-9 bg-[#E1EEF8] appearance-none border border-dark-blue rounded-full checked:bg-dark-blue cursor-pointer">
+                    <input type="radio" name="livraison" id="livraison" @change="selectShipping(item.id, item.price)" class="w-9 h-9 bg-[#E1EEF8] appearance-none border border-dark-blue rounded-full checked:bg-dark-blue cursor-pointer">
                     <div class="flex flex-col">
                         <p class="text-base font-semibold">{{ item.title }}</p>
                         <span class="text-[9px] font-normal">{{ item.description }}</span>
@@ -26,7 +26,7 @@
     <div v-for="item in props.shippingTypes" :key="item" class="flex items-center flex-col w-full md:hidden space-y-3">
         <div class="w-3/4 rounded-2xl bg-dark-blue text-white-color px-4 py-4 space-y-12">
             <div class="flex space-x-3">
-                <input type="radio" name="livraison" id="livraison" class="w-8 h-8 bg-[#E1EEF8] appearance-none border border-dark-blue rounded-full checked:bg-light-blue cursor-pointer">
+                <input type="radio" name="livraison" id="livraison" @change="selectShipping(item.id)" class="w-8 h-8 bg-[#E1EEF8] appearance-none border border-dark-blue rounded-full checked:bg-light-blue cursor-pointer">
                 <div class="flex flex-col">
                     <p class="text-lg font-semibold">{{ item.title }}</p>
                     <span class="text-[10px] font-normal">{{ item.description }}</span>
@@ -44,7 +44,11 @@
     </div>
 </template>
 <script setup>
-import {watchEffect} from 'vue'
+import {watchEffect, ref, defineEmits} from 'vue'
+import { useLastStepStore } from '../stors/endpoint'
+
+const emit = defineEmits(['update:selectedT']);
+const store = useLastStepStore();
 
 const props = defineProps({
     shippingTypes: {
@@ -55,6 +59,12 @@ const props = defineProps({
 watchEffect(() => {
     console.log(props.shippingTypes);
 });
+const selectedT = ref('');
+const selectShipping = (id, price) => {
+    store.shippingPrice = price;
+    selectedT.value = id;
+    emit('update:selectedT', id);
+};
 
 
 </script>

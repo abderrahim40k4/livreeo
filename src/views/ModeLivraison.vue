@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-[#E1EEF8] py-12">
+    <div class="bg-[#E1EEF8] min-h-screen py-12">
         <div class="container mx-auto max-w-7xl text-dark-blue">
             <div class="flex flex-col items-center justify-center space-y-10 md:space-y-16">
                 <!--title-->
@@ -9,6 +9,7 @@
 
                 <SelectShipping 
                 :shippingTypes="shippingTypes"
+                v-model:selectedT="selectedT"
                 />
 
                 <!--Buttons-->
@@ -19,6 +20,7 @@
                     <div>
                         <router-link to="/adresse-de-livraison">
                             <button
+                            @click="store.shippingType = selectedT.toString()"
                             :class="selectedT === '' ? 'cursor-default pointer-events-none opacity-50' : ''" 
                             class="bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out text-white-color rounded-full text-sm md:text-base font-semibold px-4 md:px-6 py-2 md:py-3"
                             >
@@ -35,12 +37,14 @@
 <script setup>
 import { computed, ref } from 'vue';
 import { useFormStore } from '../stors/FormStore';
+import { useLastStepStore } from '../stors/endpoint';
 import SelectShipping from '../components/SelectShipping.vue';
 
 const data = useFormStore();
+const store = useLastStepStore();
 data.fetchShipping();
 const shippingTypes = computed(() => data.shipping.shipping_types);
-const selectedT = ref('')
+const selectedT = ref(''); 
 
 </script>
 

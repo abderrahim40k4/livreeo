@@ -2,7 +2,7 @@
     <div class="bg-[#E1EEF8]">
         <div class="container mx-auto max-w-7xl">
             <div class="w-full pl-6 md:pl-20 lg:pl-40 pt-4 lg:pt-8 pb-5">
-                <router-link to="/Fourniture/cartable"><img src="../assets/back-arraw.svg" class="h-8 md:h-10 cursor-pointer" alt="back"></router-link>
+                <router-link to="/Fourniture/cartables"><img src="../assets/back-arraw.svg" class="h-8 md:h-10 cursor-pointer" alt="back"></router-link>
             </div>
             <div class="w-full flex flex-col lg:flex-row items-start pb-16 space-y-6 lg:space-y-0"> 
                 <Panier />

@@ -1,7 +1,4 @@
 import { defineStore } from "pinia";
-import { useSecondStepStore } from './SecondStepStore'; 
-import { useDefaultFaurnitures } from './DefaultFaurnitures';
-
 import axios from "../lib/axios";
 
 export const useLastStepStore = defineStore("lastStepStore", {
@@ -9,14 +6,16 @@ export const useLastStepStore = defineStore("lastStepStore", {
         reduction: 0,
         promoCode: '',
         shippingType: '',
+        shippingPrice: 0,
+        addresse: '',
+        city: '',
+        comment: '',
+        NomComplet: '',
+        PhoneNumber: '',
+        mail: '',
+        paymentM: '',
     }),
     getters:{
-        // calcTotal(state){
-        //     const data = useDefaultFaurnitures();
-        //     const secData = useSecondStepStore();
-        //     state.total = data.total + secData.total;
-        //     return state.total;
-        // }
     },
     actions:{
         async fetchPromoCode(code){

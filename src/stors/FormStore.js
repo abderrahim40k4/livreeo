@@ -5,6 +5,24 @@ export const useFormStore = defineStore("myFormStore", {
   state: () => ({
     offreEmp: [],
     shipping: [],
+    paymentM: [
+      {
+        "id": 1,
+        "title": "Carte Bancaire (payement sécurisée)",
+      },
+      {
+        "id": 2,
+        "title": "Paiement en espèces chez Wafacash",
+      },
+      {
+        "id": 3,
+        "title": "Paiement par virement bancaire",
+      },
+      {
+        "id": 4,
+        "title": "Paiement 2X et 3X sans frais",
+      }
+    ],
   }),
   getters: {
     getOffers(state){
