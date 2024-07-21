@@ -41,24 +41,24 @@
                             </div>
                             <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold uppercase">À PROPOS DE LIVRÉEO</DialogTitle>
                             <div class="space-y-3">
-                                <router-link to="/about/how-we-are" @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light">Livréeo recructe</router-link>
-                                <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/livero-criche">Résponsabilité des entreprises</router-link></p>
-                                <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/">Parrainer-un-ami</router-link></p>
+                                <router-link to="/about/livreeo-recrute" @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light">Livréeo recructe</router-link>
+                                <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/livreeo-creche">Livréeo créche</router-link></p>
+                                <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/partenariats-associatifs">Partenariats associatifs</router-link></p>
                             </div>
                         </div>
                         <div class="flex flex-col space-y-5 lg:px-5">
                             <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold uppercase">Service Client</DialogTitle>
                             <div class="space-y-3">
                                 <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/contactez-nous">Contactez-nous</router-link></p>
-                                <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/Livreson">Modalité de livraison  </router-link></p>
-                                <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/router-polic">Politique de retour</router-link></p>
+                                <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/modalite-de-livraison">Modalité de livraison</router-link></p>
+                                <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/politique-de-retour">Politique de retour</router-link></p>
                             </div>
                         </div>
                         <div class="flex flex-col space-y-5 lg:px-5">
                             <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold uppercase">Informations</DialogTitle>
                             <div class="space-y-5">
-                                <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/condition-general">Conditions générales de ventes</router-link> </p>
-                                <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/">confidentialité et les Cookies</router-link></p>
+                                <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/conditions-generales">Conditions générales de ventes</router-link> </p>
+                                <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/">Notification sur la<br>confidentialité et les Cookies</router-link></p>
                             </div>
                         </div>
                     </div>
